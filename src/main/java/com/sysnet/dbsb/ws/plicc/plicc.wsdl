@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?><wsdl:definitions name="WebServiceInterfaceService" targetNamespace="http://webservice.create.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservice.create.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://webservice.create.com/" version="1.0" xmlns:tns="http://webservice.create.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="excute" type="tns:excute"></xs:element>
+<xs:element name="excuteResponse" type="tns:excuteResponse"></xs:element>
+<xs:complexType name="excute">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="root" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="excuteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="excute">
+    <wsdl:part element="tns:excute" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="excuteResponse">
+    <wsdl:part element="tns:excuteResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WebServiceInterface">
+    <wsdl:operation name="excute">
+      <wsdl:input message="tns:excute" name="excute">
+    </wsdl:input>
+      <wsdl:output message="tns:excuteResponse" name="excuteResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceInterfaceServiceSoapBinding" type="tns:WebServiceInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="excute">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="excute">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="excuteResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceInterfaceService">
+    <wsdl:port binding="tns:WebServiceInterfaceServiceSoapBinding" name="WebServiceInterfacePort">
+      <soap:address location="http://10.20.131.125:8080/cis/services/test"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

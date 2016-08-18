@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://localhost:8087/services/XnhService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://localhost:8087/services/XnhService" xmlns:intf="http://localhost:8087/services/XnhService" xmlns:tns1="http://webservice.xnhmedical.ai.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webservice.xnhmedical.ai.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="personUploadService">
+    <complexType>
+     <sequence>
+      <element name="xml" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="personUploadServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="personUploadServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="feeBackService">
+    <complexType>
+     <sequence>
+      <element name="xml" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="feeBackServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="feeBackServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="feeUploadService">
+    <complexType>
+     <sequence>
+      <element name="xml" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="feeUploadServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="feeUploadServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="feeQueryService">
+    <complexType>
+     <sequence>
+      <element name="xml" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="feeQueryServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="feeQueryServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="feeCountService">
+    <complexType>
+     <sequence>
+      <element name="xml" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="feeCountServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="feeCountServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="hosRegInfoService">
+    <complexType>
+     <sequence>
+      <element name="xml" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="hosRegInfoServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="hosRegInfoServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="compensationInfoService">
+    <complexType>
+     <sequence>
+      <element name="xml" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="compensationInfoServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="compensationInfoServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="compensationInfoServiceRequest">
+
+      <wsdl:part element="tns1:compensationInfoService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="compensationInfoServiceResponse">
+
+      <wsdl:part element="tns1:compensationInfoServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="feeCountServiceResponse">
+
+      <wsdl:part element="tns1:feeCountServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="feeUploadServiceResponse">
+
+      <wsdl:part element="tns1:feeUploadServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="feeQueryServiceRequest">
+
+      <wsdl:part element="tns1:feeQueryService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="feeUploadServiceRequest">
+
+      <wsdl:part element="tns1:feeUploadService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="feeCountServiceRequest">
+
+      <wsdl:part element="tns1:feeCountService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="personUploadServiceResponse">
+
+      <wsdl:part element="tns1:personUploadServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="feeBackServiceResponse">
+
+      <wsdl:part element="tns1:feeBackServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="feeBackServiceRequest">
+
+      <wsdl:part element="tns1:feeBackService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="hosRegInfoServiceRequest">
+
+      <wsdl:part element="tns1:hosRegInfoService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="hosRegInfoServiceResponse">
+
+      <wsdl:part element="tns1:hosRegInfoServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="feeQueryServiceResponse">
+
+      <wsdl:part element="tns1:feeQueryServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="personUploadServiceRequest">
+
+      <wsdl:part element="tns1:personUploadService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="XnhService">
+
+      <wsdl:operation name="personUploadService">
+
+         <wsdl:input message="impl:personUploadServiceRequest" name="personUploadServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:personUploadServiceResponse" name="personUploadServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="feeBackService">
+
+         <wsdl:input message="impl:feeBackServiceRequest" name="feeBackServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:feeBackServiceResponse" name="feeBackServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="feeUploadService">
+
+         <wsdl:input message="impl:feeUploadServiceRequest" name="feeUploadServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:feeUploadServiceResponse" name="feeUploadServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="feeQueryService">
+
+         <wsdl:input message="impl:feeQueryServiceRequest" name="feeQueryServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:feeQueryServiceResponse" name="feeQueryServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="feeCountService">
+
+         <wsdl:input message="impl:feeCountServiceRequest" name="feeCountServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:feeCountServiceResponse" name="feeCountServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="hosRegInfoService">
+
+         <wsdl:input message="impl:hosRegInfoServiceRequest" name="hosRegInfoServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:hosRegInfoServiceResponse" name="hosRegInfoServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="compensationInfoService">
+
+         <wsdl:input message="impl:compensationInfoServiceRequest" name="compensationInfoServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:compensationInfoServiceResponse" name="compensationInfoServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="XnhServiceSoapBinding" type="impl:XnhService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="personUploadService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="personUploadServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="personUploadServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="feeBackService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="feeBackServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="feeBackServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="feeUploadService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="feeUploadServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="feeUploadServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="feeQueryService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="feeQueryServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="feeQueryServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="feeCountService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="feeCountServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="feeCountServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="hosRegInfoService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="hosRegInfoServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="hosRegInfoServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="compensationInfoService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="compensationInfoServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="compensationInfoServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="XnhServiceService">
+
+      <wsdl:port binding="impl:XnhServiceSoapBinding" name="XnhService">
+
+         <wsdlsoap:address location="http://localhost:8087/services/XnhService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

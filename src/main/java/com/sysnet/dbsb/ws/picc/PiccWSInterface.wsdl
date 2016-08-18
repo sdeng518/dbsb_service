@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://10.133.124.217:7010/eapdomain/services/PiccWSInterface" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://10.133.124.217:7010/eapdomain/services/PiccWSInterface" xmlns:intf="http://10.133.124.217:7010/eapdomain/services/PiccWSInterface" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: #axisVersion#
+Built on #today#-->
+
+   <wsdl:message name="transBusinessForPICCResponse">
+
+      <wsdl:part name="transBusinessForPICCReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="transBusinessForPICCRequest">
+
+      <wsdl:part name="XMLString" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PiccWebServiceInterfaceImpl">
+
+      <wsdl:operation name="transBusinessForPICC" parameterOrder="XMLString">
+
+         <wsdl:input message="impl:transBusinessForPICCRequest" name="transBusinessForPICCRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:transBusinessForPICCResponse" name="transBusinessForPICCResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PiccWSInterfaceSoapBinding" type="impl:PiccWebServiceInterfaceImpl">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="transBusinessForPICC">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="transBusinessForPICCRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://impl.applogic.domain.sinterface.core.simis.si.neusoft.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="transBusinessForPICCResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://10.133.124.217:7010/eapdomain/services/PiccWSInterface" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PiccWebServiceInterfaceImplService">
+
+      <wsdl:port binding="impl:PiccWSInterfaceSoapBinding" name="PiccWSInterface">
+
+         <wsdlsoap:address location="http://10.133.124.217:7010/eapdomain/services/PiccWSInterface"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
