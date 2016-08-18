@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sysnet.dbsb.dao.PayeeInformationDao">
+	<resultMap id="PayeeInformationMap" type="com.sysnet.dbsb.model.common.PayeeInformation">
+		<result column="personalid" property="personalid" jdbcType="VARCHAR" />
+		<result column="telephone" property="Telephone" jdbcType="VARCHAR" />
+		<result column="idnumber" property="IDNumber" jdbcType="VARCHAR" />
+		<result column="idtype" property="IDType" jdbcType="VARCHAR" />
+		<result column="bankaccountagain" property="BankAccountAgain"
+			jdbcType="VARCHAR" />
+		<result column="bankaccount" property="BankAccount" jdbcType="VARCHAR" />
+		<result column="bankaccountname" property="BankAccountName"
+			jdbcType="VARCHAR" />
+		<result column="bankaccountnameagain" property="BankAccountNameAgain"
+			jdbcType="VARCHAR" />
+		<result column="linenumber" property="LineNumber" jdbcType="VARCHAR" />
+		<result column="bankbranchname" property="BankBranchName"
+			jdbcType="VARCHAR" />
+		<result column="bankregion" property="BankRegion" jdbcType="VARCHAR" />
+		<result column="banktype" property="BankType" jdbcType="VARCHAR" />
+		<result column="customernature" property="CustomerNature"
+			jdbcType="VARCHAR" />
+		<result column="customertype" property="CustomerType" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="select">
+		SELECT
+		V.PERSONALID, V.TELEPHONE, V.IDNUMBER,
+		V.IDTYPE,
+		V.BANKACCOUNTAGAIN, V.BANKACCOUNT,
+		V.BANKACCOUNTNAME,
+		V.BANKACCOUNTNAMEAGAIN, V.LINENUMBER,
+		V.BANKBRANCHNAME, V.BANKREGION,
+		V.BANKTYPE,
+		V.CUSTOMERNATURE, V.CUSTOMERTYPE
+		FROM VIEW_DB_BANKACCOUNT V
+
+	</sql>
+	<select id="queryById" parameterType="string" resultMap="PayeeInformationMap">
+		<include refid="select"></include>
+		WHERE PERSONALID = #{id,jdbcType=VARCHAR}
+	</select>
+
+</mapper>

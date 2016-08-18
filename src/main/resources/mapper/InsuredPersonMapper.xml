@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sysnet.dbsb.dao.InsuredPersonDao">
+	<resultMap id="InsuredPersontMap" type="com.sysnet.dbsb.model.common.InsuredPerson">
+		<result column="medical_record_no" jdbcType="VARCHAR" property="medical_record_no" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="sex" jdbcType="VARCHAR" property="sex" />
+		<result column="id_type" jdbcType="VARCHAR" property="id_type" />
+		<result column="id_number" jdbcType="VARCHAR" property="id_number" />
+		<result column="birthday" jdbcType="VARCHAR" property="birthday" />
+		<result column="nation" jdbcType="VARCHAR" property="nation" />
+		<result column="marriage_state" jdbcType="VARCHAR" property="marriage_state" />
+		<result column="policy" jdbcType="VARCHAR" property="policy" />
+		<result column="education" jdbcType="VARCHAR" property="education" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+		<result column="mobilephone" jdbcType="VARCHAR" property="mobilephone" />
+		<result column="home_address" jdbcType="VARCHAR" property="home_address" />
+		<result column="profession" jdbcType="VARCHAR" property="profession" />
+		<result column="company_name" jdbcType="VARCHAR" property="company_name" />
+		<result column="industry" jdbcType="VARCHAR" property="industry" />
+		<result column="personal_attributes" jdbcType="VARCHAR"
+			property="personal_attributes" />
+		<result column="personal_identity" jdbcType="VARCHAR" property="personal_identity" />
+		<result column="insured_property" jdbcType="VARCHAR" property="insured_property" />
+		<result column="insured_property_changetime" jdbcType="VARCHAR"
+			property="insured_property_changetime" />
+		<result column="bank_code" jdbcType="VARCHAR" property="bank_code" />
+		<result column="bank_name" jdbcType="VARCHAR" property="bank_name" />
+		<result column="claim_payment_account" jdbcType="VARCHAR"
+			property="claim_payment_account" />
+		<result column="ding_hosp_code" jdbcType="VARCHAR" property="ding_hosp_code" />
+		<result column="area_code" jdbcType="VARCHAR" property="area_code" />
+		<result column="insured_year" jdbcType="VARCHAR" property="insured_year" />
+	</resultMap>
+
+	<sql id="select">
+		SELECT V.MEDICAL_RECORD_NO,
+		V.NAME,
+		V.SEX,
+		V.ID_TYPE,
+		V.ID_NUMBER,
+		V.BIRTHDAY,
+		V.NATION,
+		V.MARRIAGE_STATE,
+		V.POLICY,
+		V.EDUCATION,
+		V.PHONE,
+		V.MOBILEPHONE,
+		V.HOME_ADDRESS,
+		V.PROFESSION,
+		V.COMPANY_NAME,
+		V.INDUSTRY,
+		V.PERSONAL_ATTRIBUTES,
+		V.PERSONAL_IDENTITY,
+		V.INSURED_PROPERTY,
+		V.INSURED_PROPERTY_CHANGETIME,
+		V.BANK_CODE,
+		V.BANK_NAME,
+		V.CLAIM_PAYMENT_ACCOUNT,
+		V.DING_HOSP_CODE,
+		V.AREA_CODE,
+		V.INSURED_YEAR
+		FROM VIEW_DB_PERSON V
+	</sql>
+	<select id="queryById" parameterType="string" resultMap="InsuredPersontMap">
+		<include refid="select"></include>
+		WHERE MEDICAL_RECORD_NO=#{id,jdbcType=VARCHAR}
+	</select>
+
+	<select id="queryAll" parameterType="string" resultMap="InsuredPersontMap">
+		<include refid="select"></include>
+	</select>
+
+</mapper>

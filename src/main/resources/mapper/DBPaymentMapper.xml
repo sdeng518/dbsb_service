@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sysnet.dbsb.dao.DBPaymentMapper" >
+  <resultMap id="BaseResultMap" type="com.sysnet.dbsb.model.common.DBPayment" >
+    <id column="MEDICAL_RECORD_NO" property="MEDICAL_RECORD_NO" jdbcType="VARCHAR" />
+    <id column="HOSPITAL_REGISTRATION_SN" property="HOSPITAL_REGISTRATION_SN" jdbcType="VARCHAR" />
+    <result column="DB_COMPENSATION" property="DB_COMPENSATION" jdbcType="DECIMAL" />
+    <result column="FIT_AMOUNT" property="FIT_AMOUNT" jdbcType="DECIMAL" />
+    <result column="FIT_AMOUNT_YEAR" property="FIT_AMOUNT_YEAR" jdbcType="DECIMAL" />
+    <result column="DB_COMPENSATION_YEAR" property="DB_COMPENSATION_YEAR" jdbcType="DECIMAL" />
+    <result column="OUTDATE" property="OUTDATE" jdbcType="DATE" />
+    <result column="UPLOADFLAG" property="UPLOADFLAG" jdbcType="VARCHAR" />
+    <result column="UPLOADDATE" property="UPLOADDATE" jdbcType="DATE" />
+    <result column="COMMENTT" property="COMMENTT" jdbcType="VARCHAR" />
+    <result column="MSG" property="MSG" jdbcType="VARCHAR" />
+    <result column="UPLOADCOUNT" property="UPLOADCOUNT" jdbcType="DECIMAL" />
+    <result column="ISPRINT" property="ISPRINT" jdbcType="VARCHAR" />
+    <result column="CREATEDATE" property="CREATEDATE" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    MEDICAL_RECORD_NO, HOSPITAL_REGISTRATION_SN, DB_COMPENSATION, FIT_AMOUNT, FIT_AMOUNT_YEAR, DB_COMPENSATION_YEAR, 
+    OUTDATE, UPLOADFLAG, UPLOADDATE, COMMENTT, MSG, UPLOADCOUNT, ISPRINT, CREATEDATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.sysnet.dbsb.model.common.DBPaymentKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from DB_PAYMENT
+    where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
+      and HOSPITAL_REGISTRATION_SN = #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.sysnet.dbsb.model.common.DBPaymentKey" >
+    delete from DB_PAYMENT
+    where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
+      and HOSPITAL_REGISTRATION_SN = #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sysnet.dbsb.model.common.DBPayment" >
+    insert into DB_PAYMENT (MEDICAL_RECORD_NO, HOSPITAL_REGISTRATION_SN, 
+      DB_COMPENSATION, FIT_AMOUNT_YEAR, DB_COMPENSATION_YEAR, 
+      OUTDATE, UPLOADFLAG, UPLOADDATE, 
+      COMMENTT, MSG, UPLOADCOUNT, 
+      ISPRINT, CREATEDATE)
+    values (#{MEDICAL_RECORD_NO,jdbcType=VARCHAR}, #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR}, 
+      #{DB_COMPENSATION,jdbcType=DECIMAL}, #{FIT_AMOUNT_YEAR,jdbcType=DECIMAL}, #{DB_COMPENSATION_YEAR,jdbcType=DECIMAL}, 
+      #{OUTDATE,jdbcType=DATE}, #{UPLOADFLAG,jdbcType=VARCHAR}, #{UPLOADDATE,jdbcType=DATE}, 
+      #{COMMENTT,jdbcType=VARCHAR}, #{MSG,jdbcType=VARCHAR}, #{UPLOADCOUNT,jdbcType=DECIMAL}, 
+      #{ISPRINT,jdbcType=VARCHAR}, #{CREATEDATE,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sysnet.dbsb.model.common.DBPayment" >
+    insert into DB_PAYMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="MEDICAL_RECORD_NO != null" >
+        MEDICAL_RECORD_NO,
+      </if>
+      <if test="HOSPITAL_REGISTRATION_SN != null" >
+        HOSPITAL_REGISTRATION_SN,
+      </if>
+      <if test="DB_COMPENSATION != null" >
+        DB_COMPENSATION,
+      </if>
+      <if test="FIT_AMOUNT_YEAR != null" >
+        FIT_AMOUNT_YEAR,
+      </if>
+      <if test="DB_COMPENSATION_YEAR != null" >
+        DB_COMPENSATION_YEAR,
+      </if>
+      <if test="OUTDATE != null" >
+        OUTDATE,
+      </if>
+      <if test="UPLOADFLAG != null" >
+        UPLOADFLAG,
+      </if>
+      <if test="UPLOADDATE != null" >
+        UPLOADDATE,
+      </if>
+      <if test="COMMENTT != null" >
+        COMMENTT,
+      </if>
+      <if test="MSG != null" >
+        MSG,
+      </if>
+      <if test="UPLOADCOUNT != null" >
+        UPLOADCOUNT,
+      </if>
+      <if test="ISPRINT != null" >
+        ISPRINT,
+      </if>
+      <if test="CREATEDATE != null" >
+        CREATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="MEDICAL_RECORD_NO != null" >
+        #{MEDICAL_RECORD_NO,jdbcType=VARCHAR},
+      </if>
+      <if test="HOSPITAL_REGISTRATION_SN != null" >
+        #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR},
+      </if>
+      <if test="DB_COMPENSATION != null" >
+        #{DB_COMPENSATION,jdbcType=DECIMAL},
+      </if>
+      <if test="FIT_AMOUNT_YEAR != null" >
+        #{FIT_AMOUNT_YEAR,jdbcType=DECIMAL},
+      </if>
+      <if test="DB_COMPENSATION_YEAR != null" >
+        #{DB_COMPENSATION_YEAR,jdbcType=DECIMAL},
+      </if>
+      <if test="OUTDATE != null" >
+        #{OUTDATE,jdbcType=DATE},
+      </if>
+      <if test="UPLOADFLAG != null" >
+        #{UPLOADFLAG,jdbcType=VARCHAR},
+      </if>
+      <if test="UPLOADDATE != null" >
+        #{UPLOADDATE,jdbcType=DATE},
+      </if>
+      <if test="COMMENTT != null" >
+        #{COMMENTT,jdbcType=VARCHAR},
+      </if>
+      <if test="MSG != null" >
+        #{MSG,jdbcType=VARCHAR},
+      </if>
+      <if test="UPLOADCOUNT != null" >
+        #{UPLOADCOUNT,jdbcType=DECIMAL},
+      </if>
+      <if test="ISPRINT != null" >
+        #{ISPRINT,jdbcType=VARCHAR},
+      </if>
+      <if test="CREATEDATE != null" >
+        #{CREATEDATE,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sysnet.dbsb.model.common.DBPayment" >
+    update DB_PAYMENT
+    <set >
+      <if test="DB_COMPENSATION != null" >
+        DB_COMPENSATION = #{DB_COMPENSATION,jdbcType=DECIMAL},
+      </if>
+      <if test="FIT_AMOUNT != null">
+      	FIT_AMOUNT = #{FIT_AMOUNT,jdbcType=DECIMAL},
+      </if>
+      <if test="FIT_AMOUNT_YEAR != null" >
+        FIT_AMOUNT_YEAR = #{FIT_AMOUNT_YEAR,jdbcType=DECIMAL},
+      </if>
+      <if test="DB_COMPENSATION_YEAR != null" >
+        DB_COMPENSATION_YEAR = #{DB_COMPENSATION_YEAR,jdbcType=DECIMAL},
+      </if>
+      <if test="OUTDATE != null" >
+        OUTDATE = #{OUTDATE,jdbcType=DATE},
+      </if>
+      <if test="UPLOADFLAG != null" >
+        UPLOADFLAG = #{UPLOADFLAG,jdbcType=VARCHAR},
+      </if>
+      <if test="UPLOADDATE != null" >
+        UPLOADDATE = #{UPLOADDATE,jdbcType=DATE},
+      </if>
+      <if test="COMMENTT != null" >
+        COMMENTT = #{COMMENTT,jdbcType=VARCHAR},
+      </if>
+      <if test="MSG != null" >
+        MSG = #{MSG,jdbcType=VARCHAR},
+      </if>
+      <if test="UPLOADCOUNT != null" >
+        UPLOADCOUNT = #{UPLOADCOUNT,jdbcType=DECIMAL},
+      </if>
+      <if test="ISPRINT != null" >
+        ISPRINT = #{ISPRINT,jdbcType=VARCHAR},
+      </if>
+      <if test="CREATEDATE != null" >
+        CREATEDATE = #{CREATEDATE,jdbcType=DATE},
+      </if>
+    </set>
+    where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
+      and HOSPITAL_REGISTRATION_SN = #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sysnet.dbsb.model.common.DBPayment" >
+    update DB_PAYMENT
+    set DB_COMPENSATION = #{DB_COMPENSATION,jdbcType=DECIMAL},
+      FIT_AMOUNT = #{FIT_AMOUNT,jdbcType=DECIMAL},
+      FIT_AMOUNT_YEAR = #{FIT_AMOUNT_YEAR,jdbcType=DECIMAL},
+     DB_COMPENSATION_YEAR = #{DB_COMPENSATION_YEAR,jdbcType=DECIMAL},
+      OUTDATE = #{OUTDATE,jdbcType=DATE},
+      UPLOADFLAG = #{UPLOADFLAG,jdbcType=VARCHAR},
+      UPLOADDATE = #{UPLOADDATE,jdbcType=DATE},
+      COMMENTT = #{COMMENTT,jdbcType=VARCHAR},
+      MSG = #{MSG,jdbcType=VARCHAR},
+      UPLOADCOUNT = #{UPLOADCOUNT,jdbcType=DECIMAL},
+      ISPRINT = #{ISPRINT,jdbcType=VARCHAR},
+      CREATEDATE = #{CREATEDATE,jdbcType=DATE}
+    where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
+      and HOSPITAL_REGISTRATION_SN = #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR}
+  </update>
+</mapper>

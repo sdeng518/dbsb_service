@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sysnet.dbsb.dao.FeeSettlementMapper" >
+  <resultMap id="BaseResultMap" type="com.sysnet.dbsb.model.common.FeeSettlement" >
+    <id column="ID" property="ID" jdbcType="VARCHAR" />
+    <result column="GROUP_ID" property="GROUP_ID" jdbcType="VARCHAR" />
+    <result column="STANDARD_VERSION_CODE" property="STANDARD_VERSION_CODE" jdbcType="VARCHAR" />
+    <result column="BUS_CODE" property="BUS_CODE" jdbcType="VARCHAR" />
+    <result column="BUS_SUB_CODE" property="BUS_SUB_CODE" jdbcType="VARCHAR" />
+    <result column="BUS_TYPE" property="BUS_TYPE" jdbcType="CHAR" />
+    <result column="TOTAL_COUNT" property="TOTAL_COUNT" jdbcType="VARCHAR" />
+    <result column="TOTAL_PACKGE" property="TOTAL_PACKGE" jdbcType="VARCHAR" />
+    <result column="PACKAGE_ID" property="PACKAGE_ID" jdbcType="VARCHAR" />
+    <result column="DATA_COUNT" property="DATA_COUNT" jdbcType="VARCHAR" />
+    <result column="AREA_CODE" property="AREA_CODE" jdbcType="VARCHAR" />
+    <result column="OUTSIDE_SYSTEM_CODE" property="OUTSIDE_SYSTEM_CODE" jdbcType="VARCHAR" />
+    <result column="OUTSIDE_SYSTEM_TYPE" property="OUTSIDE_SYSTEM_TYPE" jdbcType="VARCHAR" />
+    <result column="DING_HOSP_CODE" property="DING_HOSP_CODE" jdbcType="VARCHAR" />
+    <result column="OPTION_PERSON_CODE" property="OPTION_PERSON_CODE" jdbcType="VARCHAR" />
+    <result column="INSURED_YEAR" property="INSURED_YEAR" jdbcType="VARCHAR" />
+    <result column="MEDICAL_RECORD_NO" property="MEDICAL_RECORD_NO" jdbcType="VARCHAR" />
+    <result column="HOSPITAL_REGISTRATION_SN" property="HOSPITAL_REGISTRATION_SN" jdbcType="VARCHAR" />
+    <result column="NAME" property="NAME" jdbcType="VARCHAR" />
+    <result column="SEX" property="SEX" jdbcType="CHAR" />
+    <result column="ID_TYPE" property="ID_TYPE" jdbcType="VARCHAR" />
+    <result column="ID_NUMBER" property="ID_NUMBER" jdbcType="VARCHAR" />
+    <result column="IN_DATE" property="IN_DATE" jdbcType="DATE" />
+    <result column="BABY_NAME" property="BABY_NAME" jdbcType="VARCHAR" />
+    <result column="PHONE" property="PHONE" jdbcType="VARCHAR" />
+    <result column="MOBILEPHONE" property="MOBILEPHONE" jdbcType="VARCHAR" />
+    <result column="ACCIDENT_REASON" property="ACCIDENT_REASON" jdbcType="VARCHAR" />
+    <result column="IN_HOSPITAL_STYLE" property="IN_HOSPITAL_STYLE" jdbcType="VARCHAR" />
+    <result column="BASIC_MEDICAL_TYPE" property="BASIC_MEDICAL_TYPE" jdbcType="VARCHAR" />
+    <result column="BED_NUMBER" property="BED_NUMBER" jdbcType="VARCHAR" />
+    <result column="SECTION_OFFICE" property="SECTION_OFFICE" jdbcType="VARCHAR" />
+    <result column="INITIAL_DIAGNOSIS" property="INITIAL_DIAGNOSIS" jdbcType="VARCHAR" />
+    <result column="COMPLICATION" property="COMPLICATION" jdbcType="VARCHAR" />
+    <result column="MAIN_DIAGNOSIS_CODE" property="MAIN_DIAGNOSIS_CODE" jdbcType="VARCHAR" />
+    <result column="OTHER_DIAGNOSIS_CODE" property="OTHER_DIAGNOSIS_CODE" jdbcType="VARCHAR" />
+    <result column="MASTER_DOCTOR" property="MASTER_DOCTOR" jdbcType="VARCHAR" />
+    <result column="MEMO" property="MEMO" jdbcType="VARCHAR" />
+    <result column="SETTLEMENT_NUMBER" property="SETTLEMENT_NUMBER" jdbcType="VARCHAR" />
+    <result column="LEAVE_STATE" property="LEAVE_STATE" jdbcType="VARCHAR" />
+    <result column="REFERRAL_RATIO" property="REFERRAL_RATIO" jdbcType="DECIMAL" />
+    <result column="LEAVE_HOSPITAL_STYLE" property="LEAVE_HOSPITAL_STYLE" jdbcType="VARCHAR" />
+    <result column="LEAVE_DATE" property="LEAVE_DATE" jdbcType="DATE" />
+    <result column="DEATH_TIME" property="DEATH_TIME" jdbcType="VARCHAR" />
+    <result column="LEAVE_DISEASE_CODE" property="LEAVE_DISEASE_CODE" jdbcType="DATE" />
+    <result column="TOTAL_PAYMENT" property="TOTAL_PAYMENT" jdbcType="DECIMAL" />
+    <result column="JIALEI_PAYMENT" property="JIALEI_PAYMENT" jdbcType="DECIMAL" />
+    <result column="YILEI_BAOXIAO" property="YILEI_BAOXIAO" jdbcType="DECIMAL" />
+    <result column="YILEI_PAYMENT" property="YILEI_PAYMENT" jdbcType="DECIMAL" />
+    <result column="BINGLEI_YIBAO" property="BINGLEI_YIBAO" jdbcType="DECIMAL" />
+    <result column="BINGLEI_PAYMENT" property="BINGLEI_PAYMENT" jdbcType="DECIMAL" />
+    <result column="ZY_PAYMENT" property="ZY_PAYMENT" jdbcType="DECIMAL" />
+    <result column="XY_PAYMENT" property="XY_PAYMENT" jdbcType="DECIMAL" />
+    <result column="YB_START_PAY_LINE" property="YB_START_PAY_LINE" jdbcType="DECIMAL" />
+    <result column="FIT_INTO_YB_AMOUNT" property="FIT_INTO_YB_AMOUNT" jdbcType="DECIMAL" />
+    <result column="YB_COMPENSATION" property="YB_COMPENSATION" jdbcType="DECIMAL" />
+    <result column="YB_YEAR_COMPENSATION" property="YB_YEAR_COMPENSATION" jdbcType="DECIMAL" />
+    <result column="THIRD_PARTY_COMPENSATION" property="THIRD_PARTY_COMPENSATION" jdbcType="DECIMAL" />
+    <result column="YEAR_THIRD_PARTY_COMPENSATIO" property="YEAR_THIRD_PARTY_COMPENSATIO" jdbcType="DECIMAL" />
+    <result column="DB_COMPENSATION" property="DB_COMPENSATION" jdbcType="DECIMAL" />
+    <result column="DB_YEAR_COMPENSATION" property="DB_YEAR_COMPENSATION" jdbcType="DECIMAL" />
+    <result column="BANK_CODE" property="BANK_CODE" jdbcType="VARCHAR" />
+    <result column="BANK_NAME" property="BANK_NAME" jdbcType="VARCHAR" />
+    <result column="CLAIM_PAYMENT_ACCOUNT" property="CLAIM_PAYMENT_ACCOUNT" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_HOLDERS" property="ACCOUNT_HOLDERS" jdbcType="VARCHAR" />
+    <result column="CONTRACT_NUMBER" property="CONTRACT_NUMBER" jdbcType="VARCHAR" />
+    <result column="CASE_NUMBER" property="CASE_NUMBER" jdbcType="VARCHAR" />
+    <result column="CREARE_DATE" property="CREARE_DATE" jdbcType="DATE" />
+    <result column="IS_CANCEL" property="IS_CANCEL" jdbcType="CHAR" />
+    <result column="IS_CANCEL_SUCCESS" property="IS_CANCEL_SUCCESS" jdbcType="CHAR" />
+    <result column="CANCEL_DATE" property="CANCEL_DATE" jdbcType="DATE" />
+    <result column="CANCEL_FAULT_REASON" property="CANCEL_FAULT_REASON" jdbcType="VARCHAR" />
+    <result column="STATUS" property="STATUS" jdbcType="VARCHAR" />
+    <result column="MSG" property="MSG" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, GROUP_ID, STANDARD_VERSION_CODE, BUS_CODE, BUS_SUB_CODE, BUS_TYPE, TOTAL_COUNT, 
+    TOTAL_PACKGE, PACKAGE_ID, DATA_COUNT, AREA_CODE, OUTSIDE_SYSTEM_CODE, OUTSIDE_SYSTEM_TYPE, 
+    DING_HOSP_CODE, OPTION_PERSON_CODE, INSURED_YEAR, MEDICAL_RECORD_NO, HOSPITAL_REGISTRATION_SN, 
+    NAME, SEX, ID_TYPE, ID_NUMBER, IN_DATE, BABY_NAME, PHONE, MOBILEPHONE, ACCIDENT_REASON, 
+    IN_HOSPITAL_STYLE, BASIC_MEDICAL_TYPE, BED_NUMBER, SECTION_OFFICE, INITIAL_DIAGNOSIS, 
+    COMPLICATION, MAIN_DIAGNOSIS_CODE, OTHER_DIAGNOSIS_CODE, MASTER_DOCTOR, MEMO, SETTLEMENT_NUMBER, 
+    LEAVE_STATE, REFERRAL_RATIO, LEAVE_HOSPITAL_STYLE, LEAVE_DATE, DEATH_TIME, LEAVE_DISEASE_CODE, 
+    TOTAL_PAYMENT, JIALEI_PAYMENT, YILEI_BAOXIAO, YILEI_PAYMENT, BINGLEI_YIBAO, BINGLEI_PAYMENT, 
+    ZY_PAYMENT, XY_PAYMENT, YB_START_PAY_LINE, FIT_INTO_YB_AMOUNT, YB_COMPENSATION, YB_YEAR_COMPENSATION, 
+    THIRD_PARTY_COMPENSATION, YEAR_THIRD_PARTY_COMPENSATIO, DB_COMPENSATION, DB_YEAR_COMPENSATION, 
+    BANK_CODE, BANK_NAME, CLAIM_PAYMENT_ACCOUNT, ACCOUNT_HOLDERS, CONTRACT_NUMBER, CASE_NUMBER, 
+    CREARE_DATE, IS_CANCEL, IS_CANCEL_SUCCESS, CANCEL_DATE, CANCEL_FAULT_REASON, STATUS, 
+    MSG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from DB_FEESETTLEMENT
+    where ID = #{ID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DB_FEESETTLEMENT
+    where ID = #{ID,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sysnet.dbsb.model.common.FeeSettlement" >
+    insert into DB_FEESETTLEMENT (ID, GROUP_ID, STANDARD_VERSION_CODE, 
+      BUS_CODE, BUS_SUB_CODE, BUS_TYPE, 
+      TOTAL_COUNT, TOTAL_PACKGE, PACKAGE_ID, 
+      DATA_COUNT, AREA_CODE, OUTSIDE_SYSTEM_CODE, 
+      OUTSIDE_SYSTEM_TYPE, DING_HOSP_CODE, OPTION_PERSON_CODE, 
+      INSURED_YEAR, MEDICAL_RECORD_NO, HOSPITAL_REGISTRATION_SN, 
+      NAME, SEX, ID_TYPE, ID_NUMBER, 
+      IN_DATE, BABY_NAME, PHONE, 
+      MOBILEPHONE, ACCIDENT_REASON, IN_HOSPITAL_STYLE, 
+      BASIC_MEDICAL_TYPE, BED_NUMBER, SECTION_OFFICE, 
+      INITIAL_DIAGNOSIS, COMPLICATION, MAIN_DIAGNOSIS_CODE, 
+      OTHER_DIAGNOSIS_CODE, MASTER_DOCTOR, MEMO, 
+      SETTLEMENT_NUMBER, LEAVE_STATE, REFERRAL_RATIO, 
+      LEAVE_HOSPITAL_STYLE, LEAVE_DATE, DEATH_TIME, 
+      LEAVE_DISEASE_CODE, TOTAL_PAYMENT, JIALEI_PAYMENT, 
+      YILEI_BAOXIAO, YILEI_PAYMENT, BINGLEI_YIBAO, 
+      BINGLEI_PAYMENT, ZY_PAYMENT, XY_PAYMENT, 
+      YB_START_PAY_LINE, FIT_INTO_YB_AMOUNT, 
+      YB_COMPENSATION, YB_YEAR_COMPENSATION, 
+      THIRD_PARTY_COMPENSATION, YEAR_THIRD_PARTY_COMPENSATIO, 
+      DB_COMPENSATION, DB_YEAR_COMPENSATION, 
+      BANK_CODE, BANK_NAME, CLAIM_PAYMENT_ACCOUNT, 
+      ACCOUNT_HOLDERS, CONTRACT_NUMBER, CASE_NUMBER, 
+      CREARE_DATE, IS_CANCEL, IS_CANCEL_SUCCESS, 
+      CANCEL_DATE, CANCEL_FAULT_REASON, STATUS, 
+      MSG)
+    values (#{ID,jdbcType=VARCHAR}, #{GROUP_ID,jdbcType=VARCHAR}, #{STANDARD_VERSION_CODE,jdbcType=VARCHAR}, 
+      #{BUS_CODE,jdbcType=VARCHAR}, #{BUS_SUB_CODE,jdbcType=VARCHAR}, #{BUS_TYPE,jdbcType=CHAR}, 
+      #{TOTAL_COUNT,jdbcType=VARCHAR}, #{TOTAL_PACKGE,jdbcType=VARCHAR}, #{PACKAGE_ID,jdbcType=VARCHAR}, 
+      #{DATA_COUNT,jdbcType=VARCHAR}, #{AREA_CODE,jdbcType=VARCHAR}, #{OUTSIDE_SYSTEM_CODE,jdbcType=VARCHAR}, 
+      #{OUTSIDE_SYSTEM_TYPE,jdbcType=VARCHAR}, #{DING_HOSP_CODE,jdbcType=VARCHAR}, #{OPTION_PERSON_CODE,jdbcType=VARCHAR}, 
+      #{INSURED_YEAR,jdbcType=VARCHAR}, #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}, #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR}, 
+      #{NAME,jdbcType=VARCHAR}, #{SEX,jdbcType=CHAR}, #{ID_TYPE,jdbcType=VARCHAR}, #{ID_NUMBER,jdbcType=VARCHAR}, 
+      #{IN_DATE,jdbcType=DATE}, #{BABY_NAME,jdbcType=VARCHAR}, #{PHONE,jdbcType=VARCHAR}, 
+      #{MOBILEPHONE,jdbcType=VARCHAR}, #{ACCIDENT_REASON,jdbcType=VARCHAR}, #{IN_HOSPITAL_STYLE,jdbcType=VARCHAR}, 
+      #{BASIC_MEDICAL_TYPE,jdbcType=VARCHAR}, #{BED_NUMBER,jdbcType=VARCHAR}, #{SECTION_OFFICE,jdbcType=VARCHAR}, 
+      #{INITIAL_DIAGNOSIS,jdbcType=VARCHAR}, #{COMPLICATION,jdbcType=VARCHAR}, #{MAIN_DIAGNOSIS_CODE,jdbcType=VARCHAR}, 
+      #{OTHER_DIAGNOSIS_CODE,jdbcType=VARCHAR}, #{MASTER_DOCTOR,jdbcType=VARCHAR}, #{MEMO,jdbcType=VARCHAR}, 
+      #{SETTLEMENT_NUMBER,jdbcType=VARCHAR}, #{LEAVE_STATE,jdbcType=VARCHAR}, #{REFERRAL_RATIO,jdbcType=DECIMAL}, 
+      #{LEAVE_HOSPITAL_STYLE,jdbcType=VARCHAR}, #{LEAVE_DATE,jdbcType=DATE}, #{DEATH_TIME,jdbcType=VARCHAR}, 
+      #{LEAVE_DISEASE_CODE,jdbcType=DATE}, #{TOTAL_PAYMENT,jdbcType=DECIMAL}, #{JIALEI_PAYMENT,jdbcType=DECIMAL}, 
+      #{YILEI_BAOXIAO,jdbcType=DECIMAL}, #{YILEI_PAYMENT,jdbcType=DECIMAL}, #{BINGLEI_YIBAO,jdbcType=DECIMAL}, 
+      #{BINGLEI_PAYMENT,jdbcType=DECIMAL}, #{ZY_PAYMENT,jdbcType=DECIMAL}, #{XY_PAYMENT,jdbcType=DECIMAL}, 
+      #{YB_START_PAY_LINE,jdbcType=DECIMAL}, #{FIT_INTO_YB_AMOUNT,jdbcType=DECIMAL}, 
+      #{YB_COMPENSATION,jdbcType=DECIMAL}, #{YB_YEAR_COMPENSATION,jdbcType=DECIMAL}, 
+      #{THIRD_PARTY_COMPENSATION,jdbcType=DECIMAL}, #{YEAR_THIRD_PARTY_COMPENSATIO,jdbcType=DECIMAL}, 
+      #{DB_COMPENSATION,jdbcType=DECIMAL}, #{DB_YEAR_COMPENSATION,jdbcType=DECIMAL}, 
+      #{BANK_CODE,jdbcType=VARCHAR}, #{BANK_NAME,jdbcType=VARCHAR}, #{CLAIM_PAYMENT_ACCOUNT,jdbcType=VARCHAR}, 
+      #{ACCOUNT_HOLDERS,jdbcType=VARCHAR}, #{CONTRACT_NUMBER,jdbcType=VARCHAR}, #{CASE_NUMBER,jdbcType=VARCHAR}, 
+      #{CREARE_DATE,jdbcType=DATE}, #{IS_CANCEL,jdbcType=CHAR}, #{IS_CANCEL_SUCCESS,jdbcType=CHAR}, 
+      #{CANCEL_DATE,jdbcType=DATE}, #{CANCEL_FAULT_REASON,jdbcType=VARCHAR}, #{STATUS,jdbcType=VARCHAR}, 
+      #{MSG,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sysnet.dbsb.model.common.FeeSettlement" >
+    insert into DB_FEESETTLEMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
+        ID,
+      </if>
+      <if test="GROUP_ID != null" >
+        GROUP_ID,
+      </if>
+      <if test="STANDARD_VERSION_CODE != null" >
+        STANDARD_VERSION_CODE,
+      </if>
+      <if test="BUS_CODE != null" >
+        BUS_CODE,
+      </if>
+      <if test="BUS_SUB_CODE != null" >
+        BUS_SUB_CODE,
+      </if>
+      <if test="BUS_TYPE != null" >
+        BUS_TYPE,
+      </if>
+      <if test="TOTAL_COUNT != null" >
+        TOTAL_COUNT,
+      </if>
+      <if test="TOTAL_PACKGE != null" >
+        TOTAL_PACKGE,
+      </if>
+      <if test="PACKAGE_ID != null" >
+        PACKAGE_ID,
+      </if>
+      <if test="DATA_COUNT != null" >
+        DATA_COUNT,
+      </if>
+      <if test="AREA_CODE != null" >
+        AREA_CODE,
+      </if>
+      <if test="OUTSIDE_SYSTEM_CODE != null" >
+        OUTSIDE_SYSTEM_CODE,
+      </if>
+      <if test="OUTSIDE_SYSTEM_TYPE != null" >
+        OUTSIDE_SYSTEM_TYPE,
+      </if>
+      <if test="DING_HOSP_CODE != null" >
+        DING_HOSP_CODE,
+      </if>
+      <if test="OPTION_PERSON_CODE != null" >
+        OPTION_PERSON_CODE,
+      </if>
+      <if test="INSURED_YEAR != null" >
+        INSURED_YEAR,
+      </if>
+      <if test="MEDICAL_RECORD_NO != null" >
+        MEDICAL_RECORD_NO,
+      </if>
+      <if test="HOSPITAL_REGISTRATION_SN != null" >
+        HOSPITAL_REGISTRATION_SN,
+      </if>
+      <if test="NAME != null" >
+        NAME,
+      </if>
+      <if test="SEX != null" >
+        SEX,
+      </if>
+      <if test="ID_TYPE != null" >
+        ID_TYPE,
+      </if>
+      <if test="ID_NUMBER != null" >
+        ID_NUMBER,
+      </if>
+      <if test="IN_DATE != null" >
+        IN_DATE,
+      </if>
+      <if test="BABY_NAME != null" >
+        BABY_NAME,
+      </if>
+      <if test="PHONE != null" >
+        PHONE,
+      </if>
+      <if test="MOBILEPHONE != null" >
+        MOBILEPHONE,
+      </if>
+      <if test="ACCIDENT_REASON != null" >
+        ACCIDENT_REASON,
+      </if>
+      <if test="IN_HOSPITAL_STYLE != null" >
+        IN_HOSPITAL_STYLE,
+      </if>
+      <if test="BASIC_MEDICAL_TYPE != null" >
+        BASIC_MEDICAL_TYPE,
+      </if>
+      <if test="BED_NUMBER != null" >
+        BED_NUMBER,
+      </if>
+      <if test="SECTION_OFFICE != null" >
+        SECTION_OFFICE,
+      </if>
+      <if test="INITIAL_DIAGNOSIS != null" >
+        INITIAL_DIAGNOSIS,
+      </if>
+      <if test="COMPLICATION != null" >
+        COMPLICATION,
+      </if>
+      <if test="MAIN_DIAGNOSIS_CODE != null" >
+        MAIN_DIAGNOSIS_CODE,
+      </if>
+      <if test="OTHER_DIAGNOSIS_CODE != null" >
+        OTHER_DIAGNOSIS_CODE,
+      </if>
+      <if test="MASTER_DOCTOR != null" >
+        MASTER_DOCTOR,
+      </if>
+      <if test="MEMO != null" >
+        MEMO,
+      </if>
+      <if test="SETTLEMENT_NUMBER != null" >
+        SETTLEMENT_NUMBER,
+      </if>
+      <if test="LEAVE_STATE != null" >
+        LEAVE_STATE,
+      </if>
+      <if test="REFERRAL_RATIO != null" >
+        REFERRAL_RATIO,
+      </if>
+      <if test="LEAVE_HOSPITAL_STYLE != null" >
+        LEAVE_HOSPITAL_STYLE,
+      </if>
+      <if test="LEAVE_DATE != null" >
+        LEAVE_DATE,
+      </if>
+      <if test="DEATH_TIME != null" >
+        DEATH_TIME,
+      </if>
+      <if test="LEAVE_DISEASE_CODE != null" >
+        LEAVE_DISEASE_CODE,
+      </if>
+      <if test="TOTAL_PAYMENT != null" >
+        TOTAL_PAYMENT,
+      </if>
+      <if test="JIALEI_PAYMENT != null" >
+        JIALEI_PAYMENT,
+      </if>
+      <if test="YILEI_BAOXIAO != null" >
+        YILEI_BAOXIAO,
+      </if>
+      <if test="YILEI_PAYMENT != null" >
+        YILEI_PAYMENT,
+      </if>
+      <if test="BINGLEI_YIBAO != null" >
+        BINGLEI_YIBAO,
+      </if>
+      <if test="BINGLEI_PAYMENT != null" >
+        BINGLEI_PAYMENT,
+      </if>
+      <if test="ZY_PAYMENT != null" >
+        ZY_PAYMENT,
+      </if>
+      <if test="XY_PAYMENT != null" >
+        XY_PAYMENT,
+      </if>
+      <if test="YB_START_PAY_LINE != null" >
+        YB_START_PAY_LINE,
+      </if>
+      <if test="FIT_INTO_YB_AMOUNT != null" >
+        FIT_INTO_YB_AMOUNT,
+      </if>
+      <if test="YB_COMPENSATION != null" >
+        YB_COMPENSATION,
+      </if>
+      <if test="YB_YEAR_COMPENSATION != null" >
+        YB_YEAR_COMPENSATION,
+      </if>
+      <if test="THIRD_PARTY_COMPENSATION != null" >
+        THIRD_PARTY_COMPENSATION,
+      </if>
+      <if test="YEAR_THIRD_PARTY_COMPENSATIO != null" >
+        YEAR_THIRD_PARTY_COMPENSATIO,
+      </if>
+      <if test="DB_COMPENSATION != null" >
+        DB_COMPENSATION,
+      </if>
+      <if test="DB_YEAR_COMPENSATION != null" >
+        DB_YEAR_COMPENSATION,
+      </if>
+      <if test="BANK_CODE != null" >
+        BANK_CODE,
+      </if>
+      <if test="BANK_NAME != null" >
+        BANK_NAME,
+      </if>
+      <if test="CLAIM_PAYMENT_ACCOUNT != null" >
+        CLAIM_PAYMENT_ACCOUNT,
+      </if>
+      <if test="ACCOUNT_HOLDERS != null" >
+        ACCOUNT_HOLDERS,
+      </if>
+      <if test="CONTRACT_NUMBER != null" >
+        CONTRACT_NUMBER,
+      </if>
+      <if test="CASE_NUMBER != null" >
+        CASE_NUMBER,
+      </if>
+      <if test="CREARE_DATE != null" >
+        CREARE_DATE,
+      </if>
+      <if test="IS_CANCEL != null" >
+        IS_CANCEL,
+      </if>
+      <if test="IS_CANCEL_SUCCESS != null" >
+        IS_CANCEL_SUCCESS,
+      </if>
+      <if test="CANCEL_DATE != null" >
+        CANCEL_DATE,
+      </if>
+      <if test="CANCEL_FAULT_REASON != null" >
+        CANCEL_FAULT_REASON,
+      </if>
+      <if test="STATUS != null" >
+        STATUS,
+      </if>
+      <if test="MSG != null" >
+        MSG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
+        #{ID,jdbcType=VARCHAR},
+      </if>
+      <if test="GROUP_ID != null" >
+        #{GROUP_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="STANDARD_VERSION_CODE != null" >
+        #{STANDARD_VERSION_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="BUS_CODE != null" >
+        #{BUS_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="BUS_SUB_CODE != null" >
+        #{BUS_SUB_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="BUS_TYPE != null" >
+        #{BUS_TYPE,jdbcType=CHAR},
+      </if>
+      <if test="TOTAL_COUNT != null" >
+        #{TOTAL_COUNT,jdbcType=VARCHAR},
+      </if>
+      <if test="TOTAL_PACKGE != null" >
+        #{TOTAL_PACKGE,jdbcType=VARCHAR},
+      </if>
+      <if test="PACKAGE_ID != null" >
+        #{PACKAGE_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="DATA_COUNT != null" >
+        #{DATA_COUNT,jdbcType=VARCHAR},
+      </if>
+      <if test="AREA_CODE != null" >
+        #{AREA_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="OUTSIDE_SYSTEM_CODE != null" >
+        #{OUTSIDE_SYSTEM_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="OUTSIDE_SYSTEM_TYPE != null" >
+        #{OUTSIDE_SYSTEM_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="DING_HOSP_CODE != null" >
+        #{DING_HOSP_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="OPTION_PERSON_CODE != null" >
+        #{OPTION_PERSON_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="INSURED_YEAR != null" >
+        #{INSURED_YEAR,jdbcType=VARCHAR},
+      </if>
+      <if test="MEDICAL_RECORD_NO != null" >
+        #{MEDICAL_RECORD_NO,jdbcType=VARCHAR},
+      </if>
+      <if test="HOSPITAL_REGISTRATION_SN != null" >
+        #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR},
+      </if>
+      <if test="NAME != null" >
+        #{NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="SEX != null" >
+        #{SEX,jdbcType=CHAR},
+      </if>
+      <if test="ID_TYPE != null" >
+        #{ID_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="ID_NUMBER != null" >
+        #{ID_NUMBER,jdbcType=VARCHAR},
+      </if>
+      <if test="IN_DATE != null" >
+        #{IN_DATE,jdbcType=DATE},
+      </if>
+      <if test="BABY_NAME != null" >
+        #{BABY_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="PHONE != null" >
+        #{PHONE,jdbcType=VARCHAR},
+      </if>
+      <if test="MOBILEPHONE != null" >
+        #{MOBILEPHONE,jdbcType=VARCHAR},
+      </if>
+      <if test="ACCIDENT_REASON != null" >
+        #{ACCIDENT_REASON,jdbcType=VARCHAR},
+      </if>
+      <if test="IN_HOSPITAL_STYLE != null" >
+        #{IN_HOSPITAL_STYLE,jdbcType=VARCHAR},
+      </if>
+      <if test="BASIC_MEDICAL_TYPE != null" >
+        #{BASIC_MEDICAL_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="BED_NUMBER != null" >
+        #{BED_NUMBER,jdbcType=VARCHAR},
+      </if>
+      <if test="SECTION_OFFICE != null" >
+        #{SECTION_OFFICE,jdbcType=VARCHAR},
+      </if>
+      <if test="INITIAL_DIAGNOSIS != null" >
+        #{INITIAL_DIAGNOSIS,jdbcType=VARCHAR},
+      </if>
+      <if test="COMPLICATION != null" >
+        #{COMPLICATION,jdbcType=VARCHAR},
+      </if>
+      <if test="MAIN_DIAGNOSIS_CODE != null" >
+        #{MAIN_DIAGNOSIS_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="OTHER_DIAGNOSIS_CODE != null" >
+        #{OTHER_DIAGNOSIS_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="MASTER_DOCTOR != null" >
+        #{MASTER_DOCTOR,jdbcType=VARCHAR},
+      </if>
+      <if test="MEMO != null" >
+        #{MEMO,jdbcType=VARCHAR},
+      </if>
+      <if test="SETTLEMENT_NUMBER != null" >
+        #{SETTLEMENT_NUMBER,jdbcType=VARCHAR},
+      </if>
+      <if test="LEAVE_STATE != null" >
+        #{LEAVE_STATE,jdbcType=VARCHAR},
+      </if>
+      <if test="REFERRAL_RATIO != null" >
+        #{REFERRAL_RATIO,jdbcType=DECIMAL},
+      </if>
+      <if test="LEAVE_HOSPITAL_STYLE != null" >
+        #{LEAVE_HOSPITAL_STYLE,jdbcType=VARCHAR},
+      </if>
+      <if test="LEAVE_DATE != null" >
+        #{LEAVE_DATE,jdbcType=DATE},
+      </if>
+      <if test="DEATH_TIME != null" >
+        #{DEATH_TIME,jdbcType=VARCHAR},
+      </if>
+      <if test="LEAVE_DISEASE_CODE != null" >
+        #{LEAVE_DISEASE_CODE,jdbcType=DATE},
+      </if>
+      <if test="TOTAL_PAYMENT != null" >
+        #{TOTAL_PAYMENT,jdbcType=DECIMAL},
+      </if>
+      <if test="JIALEI_PAYMENT != null" >
+        #{JIALEI_PAYMENT,jdbcType=DECIMAL},
+      </if>
+      <if test="YILEI_BAOXIAO != null" >
+        #{YILEI_BAOXIAO,jdbcType=DECIMAL},
+      </if>
+      <if test="YILEI_PAYMENT != null" >
+        #{YILEI_PAYMENT,jdbcType=DECIMAL},
+      </if>
+      <if test="BINGLEI_YIBAO != null" >
+        #{BINGLEI_YIBAO,jdbcType=DECIMAL},
+      </if>
+      <if test="BINGLEI_PAYMENT != null" >
+        #{BINGLEI_PAYMENT,jdbcType=DECIMAL},
+      </if>
+      <if test="ZY_PAYMENT != null" >
+        #{ZY_PAYMENT,jdbcType=DECIMAL},
+      </if>
+      <if test="XY_PAYMENT != null" >
+        #{XY_PAYMENT,jdbcType=DECIMAL},
+      </if>
+      <if test="YB_START_PAY_LINE != null" >
+        #{YB_START_PAY_LINE,jdbcType=DECIMAL},
+      </if>
+      <if test="FIT_INTO_YB_AMOUNT != null" >
+        #{FIT_INTO_YB_AMOUNT,jdbcType=DECIMAL},
+      </if>
+      <if test="YB_COMPENSATION != null" >
+        #{YB_COMPENSATION,jdbcType=DECIMAL},
+      </if>
+      <if test="YB_YEAR_COMPENSATION != null" >
+        #{YB_YEAR_COMPENSATION,jdbcType=DECIMAL},
+      </if>
+      <if test="THIRD_PARTY_COMPENSATION != null" >
+        #{THIRD_PARTY_COMPENSATION,jdbcType=DECIMAL},
+      </if>
+      <if test="YEAR_THIRD_PARTY_COMPENSATIO != null" >
+        #{YEAR_THIRD_PARTY_COMPENSATIO,jdbcType=DECIMAL},
+      </if>
+      <if test="DB_COMPENSATION != null" >
+        #{DB_COMPENSATION,jdbcType=DECIMAL},
+      </if>
+      <if test="DB_YEAR_COMPENSATION != null" >
+        #{DB_YEAR_COMPENSATION,jdbcType=DECIMAL},
+      </if>
+      <if test="BANK_CODE != null" >
+        #{BANK_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="BANK_NAME != null" >
+        #{BANK_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="CLAIM_PAYMENT_ACCOUNT != null" >
+        #{CLAIM_PAYMENT_ACCOUNT,jdbcType=VARCHAR},
+      </if>
+      <if test="ACCOUNT_HOLDERS != null" >
+        #{ACCOUNT_HOLDERS,jdbcType=VARCHAR},
+      </if>
+      <if test="CONTRACT_NUMBER != null" >
+        #{CONTRACT_NUMBER,jdbcType=VARCHAR},
+      </if>
+      <if test="CASE_NUMBER != null" >
+        #{CASE_NUMBER,jdbcType=VARCHAR},
+      </if>
+      <if test="CREARE_DATE != null" >
+        #{CREARE_DATE,jdbcType=DATE},
+      </if>
+      <if test="IS_CANCEL != null" >
+        #{IS_CANCEL,jdbcType=CHAR},
+      </if>
+      <if test="IS_CANCEL_SUCCESS != null" >
+        #{IS_CANCEL_SUCCESS,jdbcType=CHAR},
+      </if>
+      <if test="CANCEL_DATE != null" >
+        #{CANCEL_DATE,jdbcType=DATE},
+      </if>
+      <if test="CANCEL_FAULT_REASON != null" >
+        #{CANCEL_FAULT_REASON,jdbcType=VARCHAR},
+      </if>
+      <if test="STATUS != null" >
+        #{STATUS,jdbcType=VARCHAR},
+      </if>
+      <if test="MSG != null" >
+        #{MSG,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sysnet.dbsb.model.common.FeeSettlement" >
+    update DB_FEESETTLEMENT
+    <set >
+      <if test="GROUP_ID != null" >
+        GROUP_ID = #{GROUP_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="STANDARD_VERSION_CODE != null" >
+        STANDARD_VERSION_CODE = #{STANDARD_VERSION_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="BUS_CODE != null" >
+        BUS_CODE = #{BUS_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="BUS_SUB_CODE != null" >
+        BUS_SUB_CODE = #{BUS_SUB_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="BUS_TYPE != null" >
+        BUS_TYPE = #{BUS_TYPE,jdbcType=CHAR},
+      </if>
+      <if test="TOTAL_COUNT != null" >
+        TOTAL_COUNT = #{TOTAL_COUNT,jdbcType=VARCHAR},
+      </if>
+      <if test="TOTAL_PACKGE != null" >
+        TOTAL_PACKGE = #{TOTAL_PACKGE,jdbcType=VARCHAR},
+      </if>
+      <if test="PACKAGE_ID != null" >
+        PACKAGE_ID = #{PACKAGE_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="DATA_COUNT != null" >
+        DATA_COUNT = #{DATA_COUNT,jdbcType=VARCHAR},
+      </if>
+      <if test="AREA_CODE != null" >
+        AREA_CODE = #{AREA_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="OUTSIDE_SYSTEM_CODE != null" >
+        OUTSIDE_SYSTEM_CODE = #{OUTSIDE_SYSTEM_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="OUTSIDE_SYSTEM_TYPE != null" >
+        OUTSIDE_SYSTEM_TYPE = #{OUTSIDE_SYSTEM_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="DING_HOSP_CODE != null" >
+        DING_HOSP_CODE = #{DING_HOSP_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="OPTION_PERSON_CODE != null" >
+        OPTION_PERSON_CODE = #{OPTION_PERSON_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="INSURED_YEAR != null" >
+        INSURED_YEAR = #{INSURED_YEAR,jdbcType=VARCHAR},
+      </if>
+      <if test="MEDICAL_RECORD_NO != null" >
+        MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR},
+      </if>
+      <if test="HOSPITAL_REGISTRATION_SN != null" >
+        HOSPITAL_REGISTRATION_SN = #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR},
+      </if>
+      <if test="NAME != null" >
+        NAME = #{NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="SEX != null" >
+        SEX = #{SEX,jdbcType=CHAR},
+      </if>
+      <if test="ID_TYPE != null" >
+        ID_TYPE = #{ID_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="ID_NUMBER != null" >
+        ID_NUMBER = #{ID_NUMBER,jdbcType=VARCHAR},
+      </if>
+      <if test="IN_DATE != null" >
+        IN_DATE = #{IN_DATE,jdbcType=DATE},
+      </if>
+      <if test="BABY_NAME != null" >
+        BABY_NAME = #{BABY_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="PHONE != null" >
+        PHONE = #{PHONE,jdbcType=VARCHAR},
+      </if>
+      <if test="MOBILEPHONE != null" >
+        MOBILEPHONE = #{MOBILEPHONE,jdbcType=VARCHAR},
+      </if>
+      <if test="ACCIDENT_REASON != null" >
+        ACCIDENT_REASON = #{ACCIDENT_REASON,jdbcType=VARCHAR},
+      </if>
+      <if test="IN_HOSPITAL_STYLE != null" >
+        IN_HOSPITAL_STYLE = #{IN_HOSPITAL_STYLE,jdbcType=VARCHAR},
+      </if>
+      <if test="BASIC_MEDICAL_TYPE != null" >
+        BASIC_MEDICAL_TYPE = #{BASIC_MEDICAL_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="BED_NUMBER != null" >
+        BED_NUMBER = #{BED_NUMBER,jdbcType=VARCHAR},
+      </if>
+      <if test="SECTION_OFFICE != null" >
+        SECTION_OFFICE = #{SECTION_OFFICE,jdbcType=VARCHAR},
+      </if>
+      <if test="INITIAL_DIAGNOSIS != null" >
+        INITIAL_DIAGNOSIS = #{INITIAL_DIAGNOSIS,jdbcType=VARCHAR},
+      </if>
+      <if test="COMPLICATION != null" >
+        COMPLICATION = #{COMPLICATION,jdbcType=VARCHAR},
+      </if>
+      <if test="MAIN_DIAGNOSIS_CODE != null" >
+        MAIN_DIAGNOSIS_CODE = #{MAIN_DIAGNOSIS_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="OTHER_DIAGNOSIS_CODE != null" >
+        OTHER_DIAGNOSIS_CODE = #{OTHER_DIAGNOSIS_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="MASTER_DOCTOR != null" >
+        MASTER_DOCTOR = #{MASTER_DOCTOR,jdbcType=VARCHAR},
+      </if>
+      <if test="MEMO != null" >
+        MEMO = #{MEMO,jdbcType=VARCHAR},
+      </if>
+      <if test="SETTLEMENT_NUMBER != null" >
+        SETTLEMENT_NUMBER = #{SETTLEMENT_NUMBER,jdbcType=VARCHAR},
+      </if>
+      <if test="LEAVE_STATE != null" >
+        LEAVE_STATE = #{LEAVE_STATE,jdbcType=VARCHAR},
+      </if>
+      <if test="REFERRAL_RATIO != null" >
+        REFERRAL_RATIO = #{REFERRAL_RATIO,jdbcType=DECIMAL},
+      </if>
+      <if test="LEAVE_HOSPITAL_STYLE != null" >
+        LEAVE_HOSPITAL_STYLE = #{LEAVE_HOSPITAL_STYLE,jdbcType=VARCHAR},
+      </if>
+      <if test="LEAVE_DATE != null" >
+        LEAVE_DATE = #{LEAVE_DATE,jdbcType=DATE},
+      </if>
+      <if test="DEATH_TIME != null" >
+        DEATH_TIME = #{DEATH_TIME,jdbcType=VARCHAR},
+      </if>
+      <if test="LEAVE_DISEASE_CODE != null" >
+        LEAVE_DISEASE_CODE = #{LEAVE_DISEASE_CODE,jdbcType=DATE},
+      </if>
+      <if test="TOTAL_PAYMENT != null" >
+        TOTAL_PAYMENT = #{TOTAL_PAYMENT,jdbcType=DECIMAL},
+      </if>
+      <if test="JIALEI_PAYMENT != null" >
+        JIALEI_PAYMENT = #{JIALEI_PAYMENT,jdbcType=DECIMAL},
+      </if>
+      <if test="YILEI_BAOXIAO != null" >
+        YILEI_BAOXIAO = #{YILEI_BAOXIAO,jdbcType=DECIMAL},
+      </if>
+      <if test="YILEI_PAYMENT != null" >
+        YILEI_PAYMENT = #{YILEI_PAYMENT,jdbcType=DECIMAL},
+      </if>
+      <if test="BINGLEI_YIBAO != null" >
+        BINGLEI_YIBAO = #{BINGLEI_YIBAO,jdbcType=DECIMAL},
+      </if>
+      <if test="BINGLEI_PAYMENT != null" >
+        BINGLEI_PAYMENT = #{BINGLEI_PAYMENT,jdbcType=DECIMAL},
+      </if>
+      <if test="ZY_PAYMENT != null" >
+        ZY_PAYMENT = #{ZY_PAYMENT,jdbcType=DECIMAL},
+      </if>
+      <if test="XY_PAYMENT != null" >
+        XY_PAYMENT = #{XY_PAYMENT,jdbcType=DECIMAL},
+      </if>
+      <if test="YB_START_PAY_LINE != null" >
+        YB_START_PAY_LINE = #{YB_START_PAY_LINE,jdbcType=DECIMAL},
+      </if>
+      <if test="FIT_INTO_YB_AMOUNT != null" >
+        FIT_INTO_YB_AMOUNT = #{FIT_INTO_YB_AMOUNT,jdbcType=DECIMAL},
+      </if>
+      <if test="YB_COMPENSATION != null" >
+        YB_COMPENSATION = #{YB_COMPENSATION,jdbcType=DECIMAL},
+      </if>
+      <if test="YB_YEAR_COMPENSATION != null" >
+        YB_YEAR_COMPENSATION = #{YB_YEAR_COMPENSATION,jdbcType=DECIMAL},
+      </if>
+      <if test="THIRD_PARTY_COMPENSATION != null" >
+        THIRD_PARTY_COMPENSATION = #{THIRD_PARTY_COMPENSATION,jdbcType=DECIMAL},
+      </if>
+      <if test="YEAR_THIRD_PARTY_COMPENSATIO != null" >
+        YEAR_THIRD_PARTY_COMPENSATIO = #{YEAR_THIRD_PARTY_COMPENSATIO,jdbcType=DECIMAL},
+      </if>
+      <if test="DB_COMPENSATION != null" >
+        DB_COMPENSATION = #{DB_COMPENSATION,jdbcType=DECIMAL},
+      </if>
+      <if test="DB_YEAR_COMPENSATION != null" >
+        DB_YEAR_COMPENSATION = #{DB_YEAR_COMPENSATION,jdbcType=DECIMAL},
+      </if>
+      <if test="BANK_CODE != null" >
+        BANK_CODE = #{BANK_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="BANK_NAME != null" >
+        BANK_NAME = #{BANK_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="CLAIM_PAYMENT_ACCOUNT != null" >
+        CLAIM_PAYMENT_ACCOUNT = #{CLAIM_PAYMENT_ACCOUNT,jdbcType=VARCHAR},
+      </if>
+      <if test="ACCOUNT_HOLDERS != null" >
+        ACCOUNT_HOLDERS = #{ACCOUNT_HOLDERS,jdbcType=VARCHAR},
+      </if>
+      <if test="CONTRACT_NUMBER != null" >
+        CONTRACT_NUMBER = #{CONTRACT_NUMBER,jdbcType=VARCHAR},
+      </if>
+      <if test="CASE_NUMBER != null" >
+        CASE_NUMBER = #{CASE_NUMBER,jdbcType=VARCHAR},
+      </if>
+      <if test="CREARE_DATE != null" >
+        CREARE_DATE = #{CREARE_DATE,jdbcType=DATE},
+      </if>
+      <if test="IS_CANCEL != null" >
+        IS_CANCEL = #{IS_CANCEL,jdbcType=CHAR},
+      </if>
+      <if test="IS_CANCEL_SUCCESS != null" >
+        IS_CANCEL_SUCCESS = #{IS_CANCEL_SUCCESS,jdbcType=CHAR},
+      </if>
+      <if test="CANCEL_DATE != null" >
+        CANCEL_DATE = #{CANCEL_DATE,jdbcType=DATE},
+      </if>
+      <if test="CANCEL_FAULT_REASON != null" >
+        CANCEL_FAULT_REASON = #{CANCEL_FAULT_REASON,jdbcType=VARCHAR},
+      </if>
+      <if test="STATUS != null" >
+        STATUS = #{STATUS,jdbcType=VARCHAR},
+      </if>
+      <if test="MSG != null" >
+        MSG = #{MSG,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sysnet.dbsb.model.common.FeeSettlement" >
+    update DB_FEESETTLEMENT
+    set GROUP_ID = #{GROUP_ID,jdbcType=VARCHAR},
+      STANDARD_VERSION_CODE = #{STANDARD_VERSION_CODE,jdbcType=VARCHAR},
+      BUS_CODE = #{BUS_CODE,jdbcType=VARCHAR},
+      BUS_SUB_CODE = #{BUS_SUB_CODE,jdbcType=VARCHAR},
+      BUS_TYPE = #{BUS_TYPE,jdbcType=CHAR},
+      TOTAL_COUNT = #{TOTAL_COUNT,jdbcType=VARCHAR},
+      TOTAL_PACKGE = #{TOTAL_PACKGE,jdbcType=VARCHAR},
+      PACKAGE_ID = #{PACKAGE_ID,jdbcType=VARCHAR},
+      DATA_COUNT = #{DATA_COUNT,jdbcType=VARCHAR},
+      AREA_CODE = #{AREA_CODE,jdbcType=VARCHAR},
+      OUTSIDE_SYSTEM_CODE = #{OUTSIDE_SYSTEM_CODE,jdbcType=VARCHAR},
+      OUTSIDE_SYSTEM_TYPE = #{OUTSIDE_SYSTEM_TYPE,jdbcType=VARCHAR},
+      DING_HOSP_CODE = #{DING_HOSP_CODE,jdbcType=VARCHAR},
+      OPTION_PERSON_CODE = #{OPTION_PERSON_CODE,jdbcType=VARCHAR},
+      INSURED_YEAR = #{INSURED_YEAR,jdbcType=VARCHAR},
+      MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR},
+      HOSPITAL_REGISTRATION_SN = #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR},
+      NAME = #{NAME,jdbcType=VARCHAR},
+      SEX = #{SEX,jdbcType=CHAR},
+      ID_TYPE = #{ID_TYPE,jdbcType=VARCHAR},
+      ID_NUMBER = #{ID_NUMBER,jdbcType=VARCHAR},
+      IN_DATE = #{IN_DATE,jdbcType=DATE},
+      BABY_NAME = #{BABY_NAME,jdbcType=VARCHAR},
+      PHONE = #{PHONE,jdbcType=VARCHAR},
+      MOBILEPHONE = #{MOBILEPHONE,jdbcType=VARCHAR},
+      ACCIDENT_REASON = #{ACCIDENT_REASON,jdbcType=VARCHAR},
+      IN_HOSPITAL_STYLE = #{IN_HOSPITAL_STYLE,jdbcType=VARCHAR},
+      BASIC_MEDICAL_TYPE = #{BASIC_MEDICAL_TYPE,jdbcType=VARCHAR},
+      BED_NUMBER = #{BED_NUMBER,jdbcType=VARCHAR},
+      SECTION_OFFICE = #{SECTION_OFFICE,jdbcType=VARCHAR},
+      INITIAL_DIAGNOSIS = #{INITIAL_DIAGNOSIS,jdbcType=VARCHAR},
+      COMPLICATION = #{COMPLICATION,jdbcType=VARCHAR},
+      MAIN_DIAGNOSIS_CODE = #{MAIN_DIAGNOSIS_CODE,jdbcType=VARCHAR},
+      OTHER_DIAGNOSIS_CODE = #{OTHER_DIAGNOSIS_CODE,jdbcType=VARCHAR},
+      MASTER_DOCTOR = #{MASTER_DOCTOR,jdbcType=VARCHAR},
+      MEMO = #{MEMO,jdbcType=VARCHAR},
+      SETTLEMENT_NUMBER = #{SETTLEMENT_NUMBER,jdbcType=VARCHAR},
+      LEAVE_STATE = #{LEAVE_STATE,jdbcType=VARCHAR},
+      REFERRAL_RATIO = #{REFERRAL_RATIO,jdbcType=DECIMAL},
+      LEAVE_HOSPITAL_STYLE = #{LEAVE_HOSPITAL_STYLE,jdbcType=VARCHAR},
+      LEAVE_DATE = #{LEAVE_DATE,jdbcType=DATE},
+      DEATH_TIME = #{DEATH_TIME,jdbcType=VARCHAR},
+      LEAVE_DISEASE_CODE = #{LEAVE_DISEASE_CODE,jdbcType=DATE},
+      TOTAL_PAYMENT = #{TOTAL_PAYMENT,jdbcType=DECIMAL},
+      JIALEI_PAYMENT = #{JIALEI_PAYMENT,jdbcType=DECIMAL},
+      YILEI_BAOXIAO = #{YILEI_BAOXIAO,jdbcType=DECIMAL},
+      YILEI_PAYMENT = #{YILEI_PAYMENT,jdbcType=DECIMAL},
+      BINGLEI_YIBAO = #{BINGLEI_YIBAO,jdbcType=DECIMAL},
+      BINGLEI_PAYMENT = #{BINGLEI_PAYMENT,jdbcType=DECIMAL},
+      ZY_PAYMENT = #{ZY_PAYMENT,jdbcType=DECIMAL},
+      XY_PAYMENT = #{XY_PAYMENT,jdbcType=DECIMAL},
+      YB_START_PAY_LINE = #{YB_START_PAY_LINE,jdbcType=DECIMAL},
+      FIT_INTO_YB_AMOUNT = #{FIT_INTO_YB_AMOUNT,jdbcType=DECIMAL},
+      YB_COMPENSATION = #{YB_COMPENSATION,jdbcType=DECIMAL},
+      YB_YEAR_COMPENSATION = #{YB_YEAR_COMPENSATION,jdbcType=DECIMAL},
+      THIRD_PARTY_COMPENSATION = #{THIRD_PARTY_COMPENSATION,jdbcType=DECIMAL},
+      YEAR_THIRD_PARTY_COMPENSATIO = #{YEAR_THIRD_PARTY_COMPENSATIO,jdbcType=DECIMAL},
+      DB_COMPENSATION = #{DB_COMPENSATION,jdbcType=DECIMAL},
+      DB_YEAR_COMPENSATION = #{DB_YEAR_COMPENSATION,jdbcType=DECIMAL},
+      BANK_CODE = #{BANK_CODE,jdbcType=VARCHAR},
+      BANK_NAME = #{BANK_NAME,jdbcType=VARCHAR},
+      CLAIM_PAYMENT_ACCOUNT = #{CLAIM_PAYMENT_ACCOUNT,jdbcType=VARCHAR},
+      ACCOUNT_HOLDERS = #{ACCOUNT_HOLDERS,jdbcType=VARCHAR},
+      CONTRACT_NUMBER = #{CONTRACT_NUMBER,jdbcType=VARCHAR},
+      CASE_NUMBER = #{CASE_NUMBER,jdbcType=VARCHAR},
+      CREARE_DATE = #{CREARE_DATE,jdbcType=DATE},
+      IS_CANCEL = #{IS_CANCEL,jdbcType=CHAR},
+      IS_CANCEL_SUCCESS = #{IS_CANCEL_SUCCESS,jdbcType=CHAR},
+      CANCEL_DATE = #{CANCEL_DATE,jdbcType=DATE},
+      CANCEL_FAULT_REASON = #{CANCEL_FAULT_REASON,jdbcType=VARCHAR},
+      STATUS = #{STATUS,jdbcType=VARCHAR},
+      MSG = #{MSG,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+</mapper>

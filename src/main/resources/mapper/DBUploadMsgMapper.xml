@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sysnet.dbsb.dao.DBUploadMsgMapper" >
+  <resultMap id="BaseResultMap" type="com.sysnet.dbsb.model.common.DBUploadMsg" >
+    <id column="MEDICAL_RECORD_NO" property="MEDICAL_RECORD_NO" jdbcType="VARCHAR" />
+    <id column="HOSPITAL_REGISTRATION_SN" property="HOSPITAL_REGISTRATION_SN" jdbcType="VARCHAR" />
+    <id column="TYPE" property="TYPE" jdbcType="VARCHAR" />
+    <result column="UPLOADFLAG" property="UPLOADFLAG" jdbcType="VARCHAR" />
+    <result column="UPLOADDATE" property="UPLOADDATE" jdbcType="DATE" />
+    <result column="COMMENTT" property="COMMENTT" jdbcType="VARCHAR" />
+    <result column="UPLOADCOUNT" property="UPLOADCOUNT" jdbcType="DECIMAL" />
+    <result column="CREATEDATE" property="CREATEDATE" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    MEDICAL_RECORD_NO, HOSPITAL_REGISTRATION_SN, TYPE, UPLOADFLAG, UPLOADDATE, COMMENTT, 
+    UPLOADCOUNT, CREATEDATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.sysnet.dbsb.model.common.DBUploadMsgKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from DB_UPLOADMSG
+    where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
+      and HOSPITAL_REGISTRATION_SN = #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR}
+      and TYPE = #{TYPE,jdbcType=VARCHAR}
+      and UploadFlag = '0'
+  </select>
+  <select id="queryAll" parameterType="string" resultMap="BaseResultMap">
+	select 
+    <include refid="Base_Column_List" />
+    from DB_UPLOADMSG
+    where UploadFlag = '0'
+	</select>
+  <select id="queryByFilter" parameterType="map" resultMap="BaseResultMap">
+	select 
+	    <include refid="Base_Column_List" />
+	    from DB_UPLOADMSG　WHERE
+			  NVL(uploadcount,0)    &lt;  2 AND
+			(UploadFlag = '0' or uploaddate is null or (
+				EXISTS (
+				select 1
+				from db_payment t2
+				where DB_UPLOADMSG.MEDICAL_RECORD_NO = t2.MEDICAL_RECORD_NO
+					and t2.CreateDATE >= uploaddate
+					
+			))
+			
+			AND
+			(EXISTS (
+				select 1
+				from db_payment t2,VIEW_DB_TREATREG t3
+				where DB_UPLOADMSG.MEDICAL_RECORD_NO = t2.MEDICAL_RECORD_NO
+					and t2.MEDICAL_RECORD_NO = t3.MEDICAL_RECORD_NO
+					and t2.CreateDATE >= uploaddate
+					and t3.ding_hosp_code in ('43563192-8','43570116-4','66116165-3','43563180-5','43520299-8','43563145-0','62311839-8')
+			)))
+			
+			
+			
+		<where>
+   			<if test="medical_record_no!=null and medical_record_no!=''">
+				AND MEDICAL_RECORD_NO =#{medical_record_no,jdbcType=VARCHAR}
+			</if>
+			<if test="hospital_registration_sn!=null and hospital_registration_sn!=''">
+				AND HOSPITAL_REGISTRATION_SN
+				=#{hospital_registration_sn,jdbcType=VARCHAR}
+			</if> 
+			
+		</where>
+	</select>	
+  <delete id="deleteByPrimaryKey" parameterType="com.sysnet.dbsb.model.common.DBUploadMsgKey" >
+    delete from DB_UPLOADMSG
+    where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
+      and HOSPITAL_REGISTRATION_SN = #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR}
+      and TYPE = #{TYPE,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sysnet.dbsb.model.common.DBUploadMsg" >
+    insert into DB_UPLOADMSG (MEDICAL_RECORD_NO, HOSPITAL_REGISTRATION_SN, 
+      TYPE, UPLOADFLAG, UPLOADDATE, 
+      COMMENTT, UPLOADCOUNT, CREATEDATE
+      )
+    values (#{MEDICAL_RECORD_NO,jdbcType=VARCHAR}, #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR}, 
+      #{TYPE,jdbcType=VARCHAR}, #{UPLOADFLAG,jdbcType=VARCHAR}, #{UPLOADDATE,jdbcType=DATE}, 
+      #{COMMENTT,jdbcType=VARCHAR}, #{UPLOADCOUNT,jdbcType=DECIMAL}, #{CREATEDATE,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sysnet.dbsb.model.common.DBUploadMsg" >
+    insert into DB_UPLOADMSG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="MEDICAL_RECORD_NO != null" >
+        MEDICAL_RECORD_NO,
+      </if>
+      <if test="HOSPITAL_REGISTRATION_SN != null" >
+        HOSPITAL_REGISTRATION_SN,
+      </if>
+      <if test="TYPE != null" >
+        TYPE,
+      </if>
+      <if test="UPLOADFLAG != null" >
+        UPLOADFLAG,
+      </if>
+      <if test="UPLOADDATE != null" >
+        UPLOADDATE,
+      </if>
+      <if test="COMMENTT != null" >
+        COMMENTT,
+      </if>
+      <if test="UPLOADCOUNT != null" >
+        UPLOADCOUNT,
+      </if>
+      <if test="CREATEDATE != null" >
+        CREATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="MEDICAL_RECORD_NO != null" >
+        #{MEDICAL_RECORD_NO,jdbcType=VARCHAR},
+      </if>
+      <if test="HOSPITAL_REGISTRATION_SN != null" >
+        #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR},
+      </if>
+      <if test="TYPE != null" >
+        #{TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="UPLOADFLAG != null" >
+        #{UPLOADFLAG,jdbcType=VARCHAR},
+      </if>
+      <if test="UPLOADDATE != null" >
+        #{UPLOADDATE,jdbcType=DATE},
+      </if>
+      <if test="COMMENTT != null" >
+        #{COMMENTT,jdbcType=VARCHAR},
+      </if>
+      <if test="UPLOADCOUNT != null" >
+        #{UPLOADCOUNT,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATEDATE != null" >
+        #{CREATEDATE,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sysnet.dbsb.model.common.DBUploadMsg" >
+    update DB_UPLOADMSG
+    <set >
+      <if test="UPLOADFLAG != null" >
+        UPLOADFLAG = #{UPLOADFLAG,jdbcType=VARCHAR},
+      </if>
+      <if test="UPLOADDATE != null" >
+        UPLOADDATE = #{UPLOADDATE,jdbcType=DATE},
+      </if>
+      <if test="COMMENTT != null" >
+        COMMENTT = #{COMMENTT,jdbcType=VARCHAR},
+      </if>
+      <if test="UPLOADCOUNT != null" >
+        UPLOADCOUNT = #{UPLOADCOUNT,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATEDATE != null" >
+        CREATEDATE = #{CREATEDATE,jdbcType=DATE},
+      </if>
+    </set>
+    where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
+      and HOSPITAL_REGISTRATION_SN = #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR}
+      and TYPE = #{TYPE,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sysnet.dbsb.model.common.DBUploadMsg" >
+    update DB_UPLOADMSG
+    set UPLOADFLAG = #{UPLOADFLAG,jdbcType=VARCHAR},
+      UPLOADDATE = #{UPLOADDATE,jdbcType=DATE},
+      COMMENTT = #{COMMENTT,jdbcType=VARCHAR},
+      UPLOADCOUNT = #{UPLOADCOUNT,jdbcType=DECIMAL},
+      CREATEDATE = #{CREATEDATE,jdbcType=DATE}
+    where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
+      and HOSPITAL_REGISTRATION_SN = #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR}
+      and TYPE = #{TYPE,jdbcType=VARCHAR}
+  </update>
+</mapper>

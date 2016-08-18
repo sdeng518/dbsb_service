@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+	<!-- 扫描controller（controller层注入） -->
+	<context:component-scan base-package="com.sysnet.dbsb.business" />
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="false">
+			<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
+			<bean id="fastJsonHttpMessageConverter"
+				class="com.sysnet.common.base.converter.AppJsonHttpMessageConverter">
+				<property name="features">
+					<list>
+						<value>WriteMapNullValue</value>
+						<value>WriteNullListAsEmpty</value>
+						<value>WriteNullStringAsEmpty</value>
+						<value>WriteNullNumberAsZero</value>
+						<value>WriteNullBooleanAsFalse</value>
+						<!--斜杠处理 -->
+						<value>WriteDateUseDateFormat</value>
+						<!-- <value>WriteSlashAsSpecial</value> -->
+						<value>PrettyFormat</value>
+					</list>
+				</property>
+				<property name="supportedMediaTypes">
+					<list>
+						<!-- 这里顺序不能反，一定先写text/html,不然ie下出现下载提示 -->
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<mvc:resources location="/upload/" mapping="/upload/**" />
+	<mvc:resources location="/resources/" mapping="/resources/**" />
+	<bean id="handlerExceptionResolver"
+		class="com.sysnet.common.exception.AnnotationHandlerMethodExceptionResolver">
+		<property name="defaultErrorView" value="error" /><!-- 错误页面 -->
+		
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" /><!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑 -->
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+	</bean>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/person/**" />
+			<!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->
+			<bean class="com.sysnet.common.base.interceptor.AppInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<!-- 上传 需要使用到的配置 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="1046666000" />
+		<property name="maxInMemorySize" value="40960"></property>
+	</bean>
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="conf/i18n/messages" />
+	</bean>
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
+		
+		
+</beans>

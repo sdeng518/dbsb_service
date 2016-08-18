@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sysnet.dbsb.dao.DBPaymentYearMapper" >
+  <resultMap id="BaseResultMap" type="com.sysnet.dbsb.model.common.DBPaymentYear" >
+    <id column="MEDICAL_RECORD_NO" property="MEDICAL_RECORD_NO" jdbcType="VARCHAR" />
+    <id column="INSURANCE_YEAR" property="INSURANCE_YEAR" jdbcType="DECIMAL" />
+    <result column="DB_COMPENSATION_YEAR" property="DB_COMPENSATION_YEAR" jdbcType="DECIMAL" />
+    <result column="DB_FEE_YEAR" property="DB_FEE_YEAR" jdbcType="DECIMAL" />
+    <result column="CREATE_DATE" property="CREATE_DATE" jdbcType="DATE" />
+    <result column="NOTE" property="NOTE" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    MEDICAL_RECORD_NO, INSURANCE_YEAR, DB_COMPENSATION_YEAR, DB_FEE_YEAR, CREATE_DATE, 
+    NOTE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.sysnet.dbsb.model.common.DBPaymentYearKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from DB_PAYMENTYEAR
+    where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
+      and INSURANCE_YEAR = #{INSURANCE_YEAR,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.sysnet.dbsb.model.common.DBPaymentYearKey" >
+    delete from DB_PAYMENTYEAR
+    where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
+      and INSURANCE_YEAR = #{INSURANCE_YEAR,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.sysnet.dbsb.model.common.DBPaymentYear" >
+    insert into DB_PAYMENTYEAR (MEDICAL_RECORD_NO, INSURANCE_YEAR, 
+      DB_COMPENSATION_YEAR, DB_FEE_YEAR, CREATE_DATE, 
+      NOTE)
+    values (#{MEDICAL_RECORD_NO,jdbcType=VARCHAR}, #{INSURANCE_YEAR,jdbcType=DECIMAL}, 
+      #{DB_COMPENSATION_YEAR,jdbcType=DECIMAL}, #{DB_FEE_YEAR,jdbcType=DECIMAL}, #{CREATE_DATE,jdbcType=DATE}, 
+      #{NOTE,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sysnet.dbsb.model.common.DBPaymentYear" >
+    insert into DB_PAYMENTYEAR
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="MEDICAL_RECORD_NO != null" >
+        MEDICAL_RECORD_NO,
+      </if>
+      <if test="INSURANCE_YEAR != null" >
+        INSURANCE_YEAR,
+      </if>
+      <if test="DB_COMPENSATION_YEAR != null" >
+        DB_COMPENSATION_YEAR,
+      </if>
+      <if test="DB_FEE_YEAR != null" >
+        DB_FEE_YEAR,
+      </if>
+      <if test="CREATE_DATE != null" >
+        CREATE_DATE,
+      </if>
+      <if test="NOTE != null" >
+        NOTE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="MEDICAL_RECORD_NO != null" >
+        #{MEDICAL_RECORD_NO,jdbcType=VARCHAR},
+      </if>
+      <if test="INSURANCE_YEAR != null" >
+        #{INSURANCE_YEAR,jdbcType=DECIMAL},
+      </if>
+      <if test="DB_COMPENSATION_YEAR != null" >
+        #{DB_COMPENSATION_YEAR,jdbcType=DECIMAL},
+      </if>
+      <if test="DB_FEE_YEAR != null" >
+        #{DB_FEE_YEAR,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATE_DATE != null" >
+        #{CREATE_DATE,jdbcType=DATE},
+      </if>
+      <if test="NOTE != null" >
+        #{NOTE,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sysnet.dbsb.model.common.DBPaymentYear" >
+    update DB_PAYMENTYEAR
+    <set >
+      <if test="DB_COMPENSATION_YEAR != null" >
+        DB_COMPENSATION_YEAR = #{DB_COMPENSATION_YEAR,jdbcType=DECIMAL},
+      </if>
+      <if test="DB_FEE_YEAR != null" >
+        DB_FEE_YEAR = #{DB_FEE_YEAR,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATE_DATE != null" >
+        CREATE_DATE = #{CREATE_DATE,jdbcType=DATE},
+      </if>
+      <if test="NOTE != null" >
+        NOTE = #{NOTE,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
+      and INSURANCE_YEAR = #{INSURANCE_YEAR,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sysnet.dbsb.model.common.DBPaymentYear" >
+    update DB_PAYMENTYEAR
+    set DB_COMPENSATION_YEAR = #{DB_COMPENSATION_YEAR,jdbcType=DECIMAL},
+      DB_FEE_YEAR = #{DB_FEE_YEAR,jdbcType=DECIMAL},
+      CREATE_DATE = #{CREATE_DATE,jdbcType=DATE},
+      NOTE = #{NOTE,jdbcType=VARCHAR}
+    where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
+      and INSURANCE_YEAR = #{INSURANCE_YEAR,jdbcType=DECIMAL}
+  </update>
+</mapper>

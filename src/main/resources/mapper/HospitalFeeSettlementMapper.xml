@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sysnet.dbsb.dao.HospitalFeeSettlementDao">
+	<resultMap id="HospitalFeeSettlementMap"
+		type="com.sysnet.dbsb.model.common.HospitalFeeSettlement">
+		<result column="medical_record_no" property="medical_record_no"
+			jdbcType="VARCHAR" />
+		<result column="hospital_registration_sn" property="hospital_registration_sn"
+			jdbcType="VARCHAR" />
+		<result column="settlement_number" property="settlement_number"
+			jdbcType="VARCHAR" />
+		<result column="in_hospital_style" property="in_hospital_style"
+			jdbcType="VARCHAR" />
+		<result column="leave_state" property="leave_state" jdbcType="VARCHAR" />
+		<result column="referral_ratio" property="referral_ratio"
+			jdbcType="VARCHAR" />
+		<result column="leave_hospital_style" property="leave_hospital_style"
+			jdbcType="VARCHAR" />
+		<result column="leave_date" property="leave_date" jdbcType="VARCHAR" />
+		<result column="death_time" property="death_time" jdbcType="VARCHAR" />
+		<result column="leave_disease_code" property="leave_disease_code"
+			jdbcType="VARCHAR" />
+		<result column="complication" property="complication" jdbcType="VARCHAR" />
+		<result column="total_payment" property="total_payment"
+			jdbcType="VARCHAR" />
+		<result column="jialei_payment" property="jialei_payment"
+			jdbcType="VARCHAR" />
+		<result column="yilei_baoxiao" property="yilei_baoxiao"
+			jdbcType="VARCHAR" />
+		<result column="yilei_payment" property="yilei_payment"
+			jdbcType="VARCHAR" />
+		<result column="binglei_yibao" property="binglei_yibao"
+			jdbcType="VARCHAR" />
+		<result column="binglei_payment" property="binglei_payment"
+			jdbcType="VARCHAR" />
+		<result column="zy_payment" property="zy_payment" jdbcType="VARCHAR" />
+		<result column="xy_payment" property="xy_payment" jdbcType="VARCHAR" />
+		<result column="yb_start_pay_line" property="yb_start_pay_line"
+			jdbcType="VARCHAR" />
+		<result column="fit_into_yb_amount" property="fit_into_yb_amount"
+			jdbcType="VARCHAR" />
+		<result column="yb_compensation" property="yb_compensation"
+			jdbcType="VARCHAR" />
+		<result column="yb_year_compensation" property="yb_year_compensation"
+			jdbcType="VARCHAR" />
+		<result column="third_party_compensation" property="third_party_compensation"
+			jdbcType="VARCHAR" />
+		<result column="year_third_party_compensation" property="year_third_party_compensation"
+			jdbcType="VARCHAR" />
+		<result column="db_compensation" property="db_compensation"
+			jdbcType="VARCHAR" />
+		<result column="db_year_compensation" property="db_year_compensation"
+			jdbcType="VARCHAR" />
+		<result column="ding_hosp_code" property="ding_hosp_code"
+			jdbcType="VARCHAR" />
+		<result column="uploadflag" property="uploadflag"
+			jdbcType="VARCHAR" />
+			
+	</resultMap>
+	<sql id="select">
+		SELECT
+		V.MEDICAL_RECORD_NO, V.HOSPITAL_REGISTRATION_SN, V.SETTLEMENT_NUMBER,
+		V.IN_HOSPITAL_STYLE, V.LEAVE_STATE, V.REFERRAL_RATIO,
+		V.LEAVE_HOSPITAL_STYLE, V.LEAVE_DATE, V.DEATH_TIME,
+		V.LEAVE_DISEASE_CODE, V.COMPLICATION, V.TOTAL_PAYMENT,
+		V.JIALEI_PAYMENT, V.YILEI_BAOXIAO, V.YILEI_PAYMENT,
+		V.BINGLEI_YIBAO, V.BINGLEI_PAYMENT, V.ZY_PAYMENT,
+		V.XY_PAYMENT, V.YB_START_PAY_LINE, V.FIT_INTO_YB_AMOUNT,
+		V.YB_COMPENSATION, V.YB_YEAR_COMPENSATION, V.THIRD_PARTY_compensation,
+		V.YEAR_THIRD_PARTY_compensation, V.DB_COMPENSATION,
+		V.DB_YEAR_COMPENSATION,V.ding_hosp_code,V.uploadflag 
+		FROM VIEW_DB_SETTLEMENT V
+	</sql>
+	<select id="queryById" parameterType="string" resultMap="HospitalFeeSettlementMap">
+		<include refid="select"></include>
+		WHERE HOSPITAL_REGISTRATION_SN = #{id,jdbcType=VARCHAR}
+	</select>
+	<select id="queryByFilter" parameterType="map"
+		resultMap="HospitalFeeSettlementMap">
+		<include refid="select"></include>
+		<where>
+			uploadflag = '0'
+			<if test="medical_record_no!=null and medical_record_no!=''">
+				AND MEDICAL_RECORD_NO =#{medical_record_no,jdbcType=VARCHAR}
+			</if>
+			<if test="hospital_registration_sn!=null and hospital_registration_sn!=''">
+				AND HOSPITAL_REGISTRATION_SN
+				=#{hospital_registration_sn,jdbcType=VARCHAR}
+			</if>
+		</where>
+
+	</select>
+
+
+	<select id="queryAll" parameterType="string" resultMap="HospitalFeeSettlementMap">
+		<include refid="select"></include>
+		WHERE queryAll > 0
+	</select>
+
+</mapper>

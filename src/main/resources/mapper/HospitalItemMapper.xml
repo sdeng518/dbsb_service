@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sysnet.dbsb.dao.HospitalItemDao">
+	<resultMap id="HospitalItemMap" type="com.sysnet.dbsb.model.common.HospitalItem">
+		<result column="medical_record_no" property="medical_record_no"
+			jdbcType="VARCHAR" />
+		<result column="hospital_registration_sn" property="hospital_registration_sn"
+			jdbcType="VARCHAR" />
+		<result column="his_fee_detail_code" property="his_fee_detail_code"
+			jdbcType="VARCHAR" />
+		<result column="three_catalog_source" property="three_catalog_source"
+			jdbcType="VARCHAR" />
+		<result column="yb_three_catalog_category" property="yb_three_catalog_category"
+			jdbcType="VARCHAR" />
+		<result column="yb_three_catalog_type" property="yb_three_catalog_type"
+			jdbcType="VARCHAR" />
+		<result column="yb_three_catalog_code" property="yb_three_catalog_code"
+			jdbcType="VARCHAR" />
+		<result column="yb_three_catalog_name" property="yb_three_catalog_name"
+			jdbcType="VARCHAR" />
+		<result column="self_expense_ratio" property="self_expense_ratio"
+			jdbcType="VARCHAR" />
+		<result column="yy_three_catalog_code" property="yy_three_catalog_code"
+			jdbcType="VARCHAR" />
+		<result column="yy_three_catalog_name" property="yy_three_catalog_name"
+			jdbcType="VARCHAR" />
+		<result column="zy_quantity" property="zy_quantity" jdbcType="VARCHAR" />
+		<result column="quantity" property="quantity" jdbcType="VARCHAR" />
+		<result column="price" property="price" jdbcType="VARCHAR" />
+		<result column="total_amount" property="total_amount" jdbcType="VARCHAR" />
+		<result column="whether_compliant" property="whether_compliant"
+			jdbcType="VARCHAR" />
+		<result column="order_executed_date" property="order_executed_date"
+			jdbcType="VARCHAR" />
+		<result column="ListSerialNum" property="ListSerialNum"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="select">
+		SELECT 
+		V.MEDICAL_RECORD_NO, V.HOSPITAL_REGISTRATION_SN, V.HIS_FEE_DETAIL_CODE,
+		V.THREE_CATALOG_SOURCE, V.YB_THREE_CATALOG_CATEGORY,
+		V.YB_THREE_CATALOG_TYPE,
+		V.YB_THREE_CATALOG_CODE, V.YB_THREE_CATALOG_NAME, V.SELF_EXPENSE_RATIO,
+		V.YY_THREE_CATALOG_CODE, V.YY_THREE_CATALOG_NAME, V.ZY_QUANTITY,
+		V.QUANTITY, V.PRICE, V.TOTAL_AMOUNT,
+		V.WHETHER_COMPLIANT, V.ORDER_EXECUTED_DATE,V.ListSerialNum
+		FROM VIEW_DB_TREATDETAIL V
+
+	</sql>
+	<select id="queryById" parameterType="string" resultMap="HospitalItemMap">
+		<include refid="select"></include>
+		WHERE HOSPITAL_REGISTRATION_SN = #{id,jdbcType=VARCHAR}
+	</select>
+	<select id="queryByFilter" parameterType="map"
+		resultMap="HospitalItemMap">
+		<include refid="select"></include>
+		<where>
+			<if test="medical_record_no!=null and medical_record_no!=''">
+				AND MEDICAL_RECORD_NO =#{medical_record_no,jdbcType=VARCHAR}
+				
+			</if>
+			<if test="hospital_registration_sn!=null and hospital_registration_sn!=''">
+				AND HOSPITAL_REGISTRATION_SN
+				=#{hospital_registration_sn,jdbcType=VARCHAR}
+			</if>
+			
+		</where>
+	</select>
+	
+	<select id="queryAll" parameterType="string" resultMap="HospitalItemMap">
+		<include refid="select"></include>
+	</select>
+
+</mapper>

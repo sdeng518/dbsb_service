@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sysnet.dbsb.dao.HospitalRegistrationDao">
+	<resultMap id="HospitalRegistrationMap"
+		type="com.sysnet.dbsb.model.common.HospitalRegistration">
+		<result column="medical_record_no" jdbcType="VARCHAR" property="medical_record_no" />
+		<result column="hospital_registration_sn" jdbcType="VARCHAR"
+			property="hospital_registration_sn" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="sex" jdbcType="VARCHAR" property="sex" />
+		<result column="id_type" jdbcType="VARCHAR" property="id_type" />
+		<result column="id_number" jdbcType="VARCHAR" property="id_number" />
+		<result column="in_date" jdbcType="VARCHAR" property="in_date" />
+		<result column="baby_name" jdbcType="VARCHAR" property="baby_name" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+		<result column="mobilephone" jdbcType="VARCHAR" property="mobilephone" />
+		<result column="accident_reason" jdbcType="VARCHAR" property="accident_reason" />
+		<result column="in_hospital_style" jdbcType="VARCHAR" property="in_hospital_style" />
+		<result column="basic_medical_type" jdbcType="VARCHAR"
+			property="basic_medical_type" />
+		<result column="bed_number" jdbcType="VARCHAR" property="bed_number" />
+		<result column="section_office" jdbcType="VARCHAR" property="section_office" />
+		<result column="initial_diagnosis" jdbcType="VARCHAR" property="initial_diagnosis" />
+		<result column="complication" jdbcType="VARCHAR" property="complication" />
+		<result column="main_diagnosis_code" jdbcType="VARCHAR"
+			property="main_diagnosis_code" />
+		<result column="other_diagnosis_code" jdbcType="VARCHAR"
+			property="other_diagnosis_code" />
+		<result column="master_doctor" jdbcType="VARCHAR" property="master_doctor" />
+		<result column="memo" jdbcType="VARCHAR" property="memo" />
+		<result column="ding_hosp_code" jdbcType="VARCHAR" property="ding_hosp_code" />
+	</resultMap>
+	<sql id="select">
+		SELECT
+		V.MEDICAL_RECORD_NO, V.HOSPITAL_REGISTRATION_SN, V.NAME,
+		V.SEX, V.ID_TYPE, V.ID_NUMBER,
+		V.IN_DATE, V.BABY_NAME, V.PHONE,
+		V.MOBILEPHONE, V.ACCIDENT_REASON, V.IN_HOSPITAL_STYLE,
+		V.BASIC_MEDICAL_TYPE, V.BED_NUMBER, V.SECTION_OFFICE,
+		V.INITIAL_DIAGNOSIS, V.COMPLICATION, V.MAIN_DIAGNOSIS_CODE,
+		V.OTHER_DIAGNOSIS_CODE, V.MASTER_DOCTOR, V.MEMO,V.ding_hosp_code
+		FROM VIEW_DB_TREATREG V
+
+	</sql>
+	<select id="queryById" parameterType="string" resultMap="HospitalRegistrationMap">
+		<include refid="select"></include>
+		WHERE HOSPITAL_REGISTRATION_SN = #{id,jdbcType=VARCHAR}
+	</select>
+	<select id="queryByFilter" parameterType="map"
+		resultMap="HospitalRegistrationMap">
+		<include refid="select"></include>
+		<where>
+			<if test="medical_record_no!=null and medical_record_no!=''">
+				AND MEDICAL_RECORD_NO =#{medical_record_no,jdbcType=VARCHAR}
+			</if>
+			<if test="hospital_registration_sn!=null and hospital_registration_sn!=''">
+				AND HOSPITAL_REGISTRATION_SN
+				=#{hospital_registration_sn,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+
+	<select id="queryAll" parameterType="string" resultMap="HospitalRegistrationMap">
+		<include refid="select"></include>
+	</select>
+
+</mapper>

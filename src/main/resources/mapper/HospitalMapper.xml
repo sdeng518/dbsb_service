@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sysnet.dbsb.dao.HospitalDao">
+	<resultMap id="HospitalMap" type="com.sysnet.dbsb.model.common.Hospital">
+		<result column="hospital_code" property="hospital_code"
+			jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="hospital_grade" property="hospital_grade"
+			jdbcType="VARCHAR" />
+		<result column="current_level_start_time" property="current_level_start_time"
+			jdbcType="VARCHAR" />
+		<result column="current_level_end_time" property="current_level_end_time"
+			jdbcType="VARCHAR" />
+		<result column="contacts" property="contacts" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="mobilephone" property="mobilephone" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="nature" property="nature" jdbcType="VARCHAR" />
+		<result column="whether_ding" property="whether_ding" jdbcType="VARCHAR" />
+		<result column="profit_nature" property="profit_nature"
+			jdbcType="VARCHAR" />
+		<result column="administrative_level" property="administrative_level"
+			jdbcType="VARCHAR" />
+		<result column="area_code" property="area_code" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="select">
+		SELECT
+		V.HOSPITAL_CODE, V.NAME, V.HOSPITAL_GRADE,
+		V.CURRENT_LEVEL_START_TIME, V.CURRENT_LEVEL_END_TIME, V.CONTACTS,
+		V.PHONE, V.MOBILEPHONE, V.ADDRESS,
+		V.NATURE, V.WHETHER_DING, V.PROFIT_NATURE,
+		V.ADMINISTRATIVE_LEVEL, V.AREA_CODE
+		FROM VIEW_DB_HOSPITAL V
+	</sql>
+	<select id="queryById" parameterType="string" resultMap="HospitalMap">
+		<include refid="select"></include>
+		WHERE HOSPITAL_CODE = #{id,jdbcType=VARCHAR}
+	</select>
+
+	<select id="queryAll" parameterType="string" resultMap="HospitalMap">
+		<include refid="select"></include>
+	</select>
+
+</mapper>

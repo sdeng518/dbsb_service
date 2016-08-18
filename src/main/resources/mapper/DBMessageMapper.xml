@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sysnet.dbsb.dao.DBMessageMapper" >
+  <resultMap id="BaseResultMap" type="com.sysnet.dbsb.model.common.DBMessage" >
+    <id column="ID" property="ID" jdbcType="VARCHAR" />
+    <result column="BUS_CODE" property="BUS_CODE" jdbcType="VARCHAR" />
+    <result column="BUS_SUB_CODE" property="BUS_SUB_CODE" jdbcType="VARCHAR" />
+    <result column="REQUEST" property="REQUEST" javaType="string"  jdbcType="CLOB" />
+    <result column="RESPONSE" property="RESPONSE" javaType="string"  jdbcType="CLOB" />
+    <result column="UPDATEDATE" property="UPDATEDATE" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, BUS_CODE, BUS_SUB_CODE, REQUEST, RESPONSE, UPDATEDATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from DB_MESSAGE
+    where ID = #{ID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DB_MESSAGE
+    where ID = #{ID,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sysnet.dbsb.model.common.DBMessage" >
+    insert into DB_MESSAGE (ID, BUS_CODE, BUS_SUB_CODE, 
+      REQUEST, RESPONSE, UPDATEDATE
+      )
+    values (#{ID,jdbcType=VARCHAR}, #{BUS_CODE,jdbcType=VARCHAR}, #{BUS_SUB_CODE,jdbcType=VARCHAR}, 
+      #{REQUEST,jdbcType=OTHER}, #{RESPONSE,jdbcType=OTHER}, #{UPDATEDATE,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sysnet.dbsb.model.common.DBMessage" >
+    insert into DB_MESSAGE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
+        ID,
+      </if>
+      <if test="BUS_CODE != null" >
+        BUS_CODE,
+      </if>
+      <if test="BUS_SUB_CODE != null" >
+        BUS_SUB_CODE,
+      </if>
+      <if test="REQUEST != null" >
+        REQUEST,
+      </if>
+      <if test="RESPONSE != null" >
+        RESPONSE,
+      </if>
+      <if test="UPDATEDATE != null" >
+        UPDATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
+        #{ID,jdbcType=VARCHAR},
+      </if>
+      <if test="BUS_CODE != null" >
+        #{BUS_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="BUS_SUB_CODE != null" >
+        #{BUS_SUB_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="REQUEST != null" >
+        #{REQUEST,jdbcType=OTHER},
+      </if>
+      <if test="RESPONSE != null" >
+        #{RESPONSE,jdbcType=OTHER},
+      </if>
+      <if test="UPDATEDATE != null" >
+        #{UPDATEDATE,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sysnet.dbsb.model.common.DBMessage" >
+    update DB_MESSAGE
+    <set >
+      <if test="BUS_CODE != null" >
+        BUS_CODE = #{BUS_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="BUS_SUB_CODE != null" >
+        BUS_SUB_CODE = #{BUS_SUB_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="REQUEST != null" >
+        REQUEST = #{REQUEST,jdbcType=OTHER},
+      </if>
+      <if test="RESPONSE != null" >
+        RESPONSE = #{RESPONSE,jdbcType=OTHER},
+      </if>
+      <if test="UPDATEDATE != null" >
+        UPDATEDATE = #{UPDATEDATE,jdbcType=DATE},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sysnet.dbsb.model.common.DBMessage" >
+    update DB_MESSAGE
+    set BUS_CODE = #{BUS_CODE,jdbcType=VARCHAR},
+      BUS_SUB_CODE = #{BUS_SUB_CODE,jdbcType=VARCHAR},
+      REQUEST = #{REQUEST,jdbcType=OTHER},
+      RESPONSE = #{RESPONSE,jdbcType=OTHER},
+      UPDATEDATE = #{UPDATEDATE,jdbcType=DATE}
+    where ID = #{ID,jdbcType=VARCHAR}
+  </update>
+</mapper>

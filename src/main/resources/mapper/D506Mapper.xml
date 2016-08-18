@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sysnet.dbsb.dao.xnh.D506Mapper">
+  <resultMap id="D506ResultMap" type="com.sysnet.dbsb.model.plicc.xnh.D506">
+    <id column="D506_38" jdbcType="VARCHAR" property="d506_38" />
+    <id column="D506_01" jdbcType="VARCHAR" property="d506_01" />
+    <result column="D506_05" jdbcType="DECIMAL" property="d506_05" />
+    <result column="D506_06" jdbcType="VARCHAR" property="d506_06" />
+    <result column="D506_07" jdbcType="CHAR" property="d506_07" />
+    <result column="D506_08" jdbcType="VARCHAR" property="d506_08" />
+    <result column="D506_09" jdbcType="VARCHAR" property="d506_09" />
+    <result column="D506_10" jdbcType="DECIMAL" property="d506_10" />
+    <result column="D506_50" jdbcType="VARCHAR" property="d506_50" />
+    <result column="D506_11" jdbcType="CHAR" property="d506_11" />
+    <result column="D506_12" jdbcType="VARCHAR" property="d506_12" />
+    <result column="D506_52" jdbcType="DATE" property="d506_52" />
+    <result column="D506_53" jdbcType="DATE" property="d506_53" />
+    <result column="D506_54" jdbcType="VARCHAR" property="d506_54" />
+    <result column="D506_55" jdbcType="VARCHAR" property="d506_55" />
+    <result column="D506_56" jdbcType="DECIMAL" property="d506_56" />
+    <result column="D506_58" jdbcType="DECIMAL" property="d506_58" />
+    <result column="D506_60" jdbcType="VARCHAR" property="d506_60" />
+    <result column="D506_61" jdbcType="VARCHAR" property="d506_61" />
+    <result column="D506_62" jdbcType="VARCHAR" property="d506_62" />
+    <result column="D506_67" jdbcType="VARCHAR" property="d506_67" />
+    <result column="D506_63" jdbcType="VARCHAR" property="d506_63" />
+    <result column="D506_64" jdbcType="VARCHAR" property="d506_64" />
+    <result column="D506_57" jdbcType="VARCHAR" property="d506_57" />
+    <result column="D506_37" jdbcType="DECIMAL" property="d506_37" />
+    <result column="D506_66" jdbcType="DECIMAL" property="d506_66" />
+    <result column="D506_03" jdbcType="DECIMAL" property="d506_03" />
+    <result column="D506_04" jdbcType="DECIMAL" property="d506_04" />
+    <result column="D506_13" jdbcType="DECIMAL" property="d506_13" />
+    <result column="D506_14" jdbcType="DECIMAL" property="d506_14" />
+    <result column="D506_33" jdbcType="DECIMAL" property="d506_33" />
+    <result column="D506_19" jdbcType="DECIMAL" property="d506_19" />
+    <result column="D506_30" jdbcType="DECIMAL" property="d506_30" />
+    <result column="D506_31" jdbcType="DECIMAL" property="d506_31" />
+    <result column="D506_39" jdbcType="DECIMAL" property="d506_39" />
+    <result column="D506_18" jdbcType="VARCHAR" property="d506_18" />
+    <result column="AAE036" jdbcType="DATE" property="AAE036" />
+    <result column="D506_49" jdbcType="VARCHAR" property="d506_49" />
+    <result column="D506_88" jdbcType="DATE" property="d506_88" />
+    <result column="D506_89" jdbcType="VARCHAR" property="d506_89" />
+    <result column="D506_90" jdbcType="VARCHAR" property="d506_90" />
+    <result column="D506_91" jdbcType="DATE" property="d506_91" />
+    <result column="D506_93" jdbcType="DECIMAL" property="d506_93" />
+    <result column="D506_94" jdbcType="DECIMAL" property="d506_94" />
+    <result column="D506_95" jdbcType="DECIMAL" property="d506_95" />
+    <result column="D506_42" jdbcType="VARCHAR" property="d506_42" />
+    <result column="D506_92" jdbcType="VARCHAR" property="d506_92" />
+    <result column="D506_96" jdbcType="VARCHAR" property="d506_96" />
+    <result column="D506_65" jdbcType="VARCHAR" property="d506_65" />
+    <result column="D506_68" jdbcType="VARCHAR" property="d506_68" />
+    <result column="D506_EXT02" jdbcType="VARCHAR" property="d506_EXT02" />
+    <result column="D506_EXT01" jdbcType="VARCHAR" property="d506_EXT01" />
+    <result column="D506_EXT03" jdbcType="DECIMAL" property="d506_EXT03" />
+    <result column="D506_EXT04" jdbcType="DECIMAL" property="d506_EXT04" />
+    <result column="D506_EXT05" jdbcType="DECIMAL" property="d506_EXT05" />
+    <result column="D506_EXT06" jdbcType="DECIMAL" property="d506_EXT06" />
+    <result column="D506_EXT07" jdbcType="DECIMAL" property="d506_EXT07" />
+    <result column="D506_EXT08" jdbcType="DECIMAL" property="d506_EXT08" />
+    <result column="D506_EXT09" jdbcType="DECIMAL" property="d506_EXT09" />
+    <result column="D506_EXT10" jdbcType="DECIMAL" property="d506_EXT10" />
+    <result column="D506_EXT11" jdbcType="DECIMAL" property="d506_EXT11" />
+    <result column="D506_EXT12" jdbcType="DECIMAL" property="d506_EXT12" />
+    <result column="D506_EXT13" jdbcType="DECIMAL" property="d506_EXT13" />
+    <result column="D506_EXT14" jdbcType="DECIMAL" property="d506_EXT14" />
+    <result column="D506_TEMP" jdbcType="DECIMAL" property="d506_TEMP" />
+    <result column="D506_EXT19" jdbcType="DECIMAL" property="d506_EXT19" />
+    <result column="D506_35" jdbcType="CHAR" property="d506_35" />
+    <result column="D506_EXT21" jdbcType="DECIMAL" property="d506_EXT21" />
+    <result column="D506_EXT17" jdbcType="DECIMAL" property="d506_EXT17" />
+    <result column="D506_EXT22" jdbcType="DECIMAL" property="d506_EXT22" />
+    <result column="D506_EXT23" jdbcType="DECIMAL" property="d506_EXT23" />
+    <result column="D506_EXT24" jdbcType="VARCHAR" property="d506_EXT24" />
+    <result column="D506_EXT25" jdbcType="DECIMAL" property="d506_EXT25" />
+    <result column="D506_EXT26" jdbcType="VARCHAR" property="d506_EXT26" />
+    <result column="D506_EXT18" jdbcType="DECIMAL" property="d506_EXT18" />
+    <result column="D506_29" jdbcType="DECIMAL" property="d506_29" />
+    <result column="D506_EXT31" jdbcType="DECIMAL" property="d506_EXT31" />
+    <result column="D506_EXT28" jdbcType="VARCHAR" property="d506_EXT28" />
+    <result column="D506_EXT29" jdbcType="DECIMAL" property="d506_EXT29" />
+    <result column="D506_EXT30" jdbcType="DECIMAL" property="d506_EXT30" />
+    <result column="D506_EXT27" jdbcType="DECIMAL" property="d506_EXT27" />
+    <result column="D506_EXT33" jdbcType="VARCHAR" property="d506_EXT33" />
+    <result column="D506_EXT40" jdbcType="DECIMAL" property="d506_EXT40" />
+    <result column="D506_EXT41" jdbcType="VARCHAR" property="d506_EXT41" />
+    <result column="D506_EXT42" jdbcType="DATE" property="d506_EXT42" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    D506_38, D506_01, D506_05, D506_06, D506_07, D506_08, D506_09, D506_10, D506_50, 
+    D506_11, D506_12, D506_52, D506_53, D506_54, D506_55, D506_56, D506_58, D506_60, 
+    D506_61, D506_62, D506_67, D506_63, D506_64, D506_57, D506_37, D506_66, D506_03, 
+    D506_04, D506_13, D506_14, D506_33, D506_19, D506_30, D506_31, D506_39, D506_18, 
+    AAE036, D506_49, D506_88, D506_89, D506_90, D506_91, D506_93, D506_94, D506_95, D506_42, 
+    D506_92, D506_96, D506_65, D506_68, D506_EXT02, D506_EXT01, D506_EXT03, D506_EXT04, 
+    D506_EXT05, D506_EXT06, D506_EXT07, D506_EXT08, D506_EXT09, D506_EXT10, D506_EXT11, 
+    D506_EXT12, D506_EXT13, D506_EXT14, D506_TEMP, D506_EXT19, D506_35, D506_EXT21, D506_EXT17, 
+    D506_EXT22, D506_EXT23, D506_EXT24, D506_EXT25, D506_EXT26, D506_EXT18, D506_29, 
+    D506_EXT31, D506_EXT28, D506_EXT29, D506_EXT30, D506_EXT27, D506_EXT33, D506_EXT40, 
+    D506_EXT41, D506_EXT42
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.sysnet.dbsb.model.plicc.xnh.D506Key" resultMap="D506ResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from D506
+    where D506_38 = #{d506_38,jdbcType=VARCHAR}
+      and D506_01 = #{d506_01,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.sysnet.dbsb.model.plicc.xnh.D506Key">
+    delete from D506
+    where D506_38 = #{d506_38,jdbcType=VARCHAR}
+      and D506_01 = #{d506_01,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sysnet.dbsb.model.plicc.xnh.D506">
+    insert into D506 (D506_38, D506_01, D506_05, 
+      D506_06, D506_07, D506_08, 
+      D506_09, D506_10, D506_50, 
+      D506_11, D506_12, D506_52, 
+      D506_53, D506_54, D506_55, 
+      D506_56, D506_58, D506_60, 
+      D506_61, D506_62, D506_67, 
+      D506_63, D506_64, D506_57, 
+      D506_37, D506_66, D506_03, 
+      D506_04, D506_13, D506_14, 
+      D506_33, D506_19, D506_30, 
+      D506_31, D506_39, D506_18, 
+      AAE036, D506_49, D506_88, 
+      D506_89, D506_90, D506_91, 
+      D506_93, D506_94, D506_95, 
+      D506_42, D506_92, D506_96, 
+      D506_65, D506_68, D506_EXT02, 
+      D506_EXT01, D506_EXT03, D506_EXT04, 
+      D506_EXT05, D506_EXT06, D506_EXT07, 
+      D506_EXT08, D506_EXT09, D506_EXT10, 
+      D506_EXT11, D506_EXT12, D506_EXT13, 
+      D506_EXT14, D506_TEMP, D506_EXT19, 
+      D506_35, D506_EXT21, D506_EXT17, 
+      D506_EXT22, D506_EXT23, D506_EXT24, 
+      D506_EXT25, D506_EXT26, D506_EXT18, 
+      D506_29, D506_EXT31, D506_EXT28, 
+      D506_EXT29, D506_EXT30, D506_EXT27, 
+      D506_EXT33, D506_EXT40, D506_EXT41, 
+      D506_EXT42)
+    values (#{d506_38,jdbcType=VARCHAR}, #{d506_01,jdbcType=VARCHAR}, #{d506_05,jdbcType=DECIMAL}, 
+      #{d506_06,jdbcType=VARCHAR}, #{d506_07,jdbcType=CHAR}, #{d506_08,jdbcType=VARCHAR}, 
+      #{d506_09,jdbcType=VARCHAR}, #{d506_10,jdbcType=DECIMAL}, #{d506_50,jdbcType=VARCHAR}, 
+      #{d506_11,jdbcType=CHAR}, #{d506_12,jdbcType=VARCHAR}, #{d506_52,jdbcType=DATE}, 
+      #{d506_53,jdbcType=DATE}, #{d506_54,jdbcType=VARCHAR}, #{d506_55,jdbcType=VARCHAR}, 
+      #{d506_56,jdbcType=DECIMAL}, #{d506_58,jdbcType=DECIMAL}, #{d506_60,jdbcType=VARCHAR}, 
+      #{d506_61,jdbcType=VARCHAR}, #{d506_62,jdbcType=VARCHAR}, #{d506_67,jdbcType=VARCHAR}, 
+      #{d506_63,jdbcType=VARCHAR}, #{d506_64,jdbcType=VARCHAR}, #{d506_57,jdbcType=VARCHAR}, 
+      #{d506_37,jdbcType=DECIMAL}, #{d506_66,jdbcType=DECIMAL}, #{d506_03,jdbcType=DECIMAL}, 
+      #{d506_04,jdbcType=DECIMAL}, #{d506_13,jdbcType=DECIMAL}, #{d506_14,jdbcType=DECIMAL}, 
+      #{d506_33,jdbcType=DECIMAL}, #{d506_19,jdbcType=DECIMAL}, #{d506_30,jdbcType=DECIMAL}, 
+      #{d506_31,jdbcType=DECIMAL}, #{d506_39,jdbcType=DECIMAL}, #{d506_18,jdbcType=VARCHAR}, 
+      #{AAE036,jdbcType=DATE}, #{d506_49,jdbcType=VARCHAR}, #{d506_88,jdbcType=DATE}, 
+      #{d506_89,jdbcType=VARCHAR}, #{d506_90,jdbcType=VARCHAR}, #{d506_91,jdbcType=DATE}, 
+      #{d506_93,jdbcType=DECIMAL}, #{d506_94,jdbcType=DECIMAL}, #{d506_95,jdbcType=DECIMAL}, 
+      #{d506_42,jdbcType=VARCHAR}, #{d506_92,jdbcType=VARCHAR}, #{d506_96,jdbcType=VARCHAR}, 
+      #{d506_65,jdbcType=VARCHAR}, #{d506_68,jdbcType=VARCHAR}, #{d506_EXT02,jdbcType=VARCHAR}, 
+      #{d506_EXT01,jdbcType=VARCHAR}, #{d506_EXT03,jdbcType=DECIMAL}, #{d506_EXT04,jdbcType=DECIMAL}, 
+      #{d506_EXT05,jdbcType=DECIMAL}, #{d506_EXT06,jdbcType=DECIMAL}, #{d506_EXT07,jdbcType=DECIMAL}, 
+      #{d506_EXT08,jdbcType=DECIMAL}, #{d506_EXT09,jdbcType=DECIMAL}, #{d506_EXT10,jdbcType=DECIMAL}, 
+      #{d506_EXT11,jdbcType=DECIMAL}, #{d506_EXT12,jdbcType=DECIMAL}, #{d506_EXT13,jdbcType=DECIMAL}, 
+      #{d506_EXT14,jdbcType=DECIMAL}, #{d506_TEMP,jdbcType=DECIMAL}, #{d506_EXT19,jdbcType=DECIMAL}, 
+      #{d506_35,jdbcType=CHAR}, #{d506_EXT21,jdbcType=DECIMAL}, #{d506_EXT17,jdbcType=DECIMAL}, 
+      #{d506_EXT22,jdbcType=DECIMAL}, #{d506_EXT23,jdbcType=DECIMAL}, #{d506_EXT24,jdbcType=VARCHAR}, 
+      #{d506_EXT25,jdbcType=DECIMAL}, #{d506_EXT26,jdbcType=VARCHAR}, #{d506_EXT18,jdbcType=DECIMAL}, 
+      #{d506_29,jdbcType=DECIMAL}, #{d506_EXT31,jdbcType=DECIMAL}, #{d506_EXT28,jdbcType=VARCHAR}, 
+      #{d506_EXT29,jdbcType=DECIMAL}, #{d506_EXT30,jdbcType=DECIMAL}, #{d506_EXT27,jdbcType=DECIMAL}, 
+      #{d506_EXT33,jdbcType=VARCHAR}, #{d506_EXT40,jdbcType=DECIMAL}, #{d506_EXT41,jdbcType=VARCHAR}, 
+      #{d506_EXT42,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sysnet.dbsb.model.plicc.xnh.D506">
+    insert into D506
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="d506_38 != null">
+        D506_38,
+      </if>
+      <if test="d506_01 != null">
+        D506_01,
+      </if>
+      <if test="d506_05 != null">
+        D506_05,
+      </if>
+      <if test="d506_06 != null">
+        D506_06,
+      </if>
+      <if test="d506_07 != null">
+        D506_07,
+      </if>
+      <if test="d506_08 != null">
+        D506_08,
+      </if>
+      <if test="d506_09 != null">
+        D506_09,
+      </if>
+      <if test="d506_10 != null">
+        D506_10,
+      </if>
+      <if test="d506_50 != null">
+        D506_50,
+      </if>
+      <if test="d506_11 != null">
+        D506_11,
+      </if>
+      <if test="d506_12 != null">
+        D506_12,
+      </if>
+      <if test="d506_52 != null">
+        D506_52,
+      </if>
+      <if test="d506_53 != null">
+        D506_53,
+      </if>
+      <if test="d506_54 != null">
+        D506_54,
+      </if>
+      <if test="d506_55 != null">
+        D506_55,
+      </if>
+      <if test="d506_56 != null">
+        D506_56,
+      </if>
+      <if test="d506_58 != null">
+        D506_58,
+      </if>
+      <if test="d506_60 != null">
+        D506_60,
+      </if>
+      <if test="d506_61 != null">
+        D506_61,
+      </if>
+      <if test="d506_62 != null">
+        D506_62,
+      </if>
+      <if test="d506_67 != null">
+        D506_67,
+      </if>
+      <if test="d506_63 != null">
+        D506_63,
+      </if>
+      <if test="d506_64 != null">
+        D506_64,
+      </if>
+      <if test="d506_57 != null">
+        D506_57,
+      </if>
+      <if test="d506_37 != null">
+        D506_37,
+      </if>
+      <if test="d506_66 != null">
+        D506_66,
+      </if>
+      <if test="d506_03 != null">
+        D506_03,
+      </if>
+      <if test="d506_04 != null">
+        D506_04,
+      </if>
+      <if test="d506_13 != null">
+        D506_13,
+      </if>
+      <if test="d506_14 != null">
+        D506_14,
+      </if>
+      <if test="d506_33 != null">
+        D506_33,
+      </if>
+      <if test="d506_19 != null">
+        D506_19,
+      </if>
+      <if test="d506_30 != null">
+        D506_30,
+      </if>
+      <if test="d506_31 != null">
+        D506_31,
+      </if>
+      <if test="d506_39 != null">
+        D506_39,
+      </if>
+      <if test="d506_18 != null">
+        D506_18,
+      </if>
+      <if test="AAE036 != null">
+        AAE036,
+      </if>
+      <if test="d506_49 != null">
+        D506_49,
+      </if>
+      <if test="d506_88 != null">
+        D506_88,
+      </if>
+      <if test="d506_89 != null">
+        D506_89,
+      </if>
+      <if test="d506_90 != null">
+        D506_90,
+      </if>
+      <if test="d506_91 != null">
+        D506_91,
+      </if>
+      <if test="d506_93 != null">
+        D506_93,
+      </if>
+      <if test="d506_94 != null">
+        D506_94,
+      </if>
+      <if test="d506_95 != null">
+        D506_95,
+      </if>
+      <if test="d506_42 != null">
+        D506_42,
+      </if>
+      <if test="d506_92 != null">
+        D506_92,
+      </if>
+      <if test="d506_96 != null">
+        D506_96,
+      </if>
+      <if test="d506_65 != null">
+        D506_65,
+      </if>
+      <if test="d506_68 != null">
+        D506_68,
+      </if>
+      <if test="d506_EXT02 != null">
+        D506_EXT02,
+      </if>
+      <if test="d506_EXT01 != null">
+        D506_EXT01,
+      </if>
+      <if test="d506_EXT03 != null">
+        D506_EXT03,
+      </if>
+      <if test="d506_EXT04 != null">
+        D506_EXT04,
+      </if>
+      <if test="d506_EXT05 != null">
+        D506_EXT05,
+      </if>
+      <if test="d506_EXT06 != null">
+        D506_EXT06,
+      </if>
+      <if test="d506_EXT07 != null">
+        D506_EXT07,
+      </if>
+      <if test="d506_EXT08 != null">
+        D506_EXT08,
+      </if>
+      <if test="d506_EXT09 != null">
+        D506_EXT09,
+      </if>
+      <if test="d506_EXT10 != null">
+        D506_EXT10,
+      </if>
+      <if test="d506_EXT11 != null">
+        D506_EXT11,
+      </if>
+      <if test="d506_EXT12 != null">
+        D506_EXT12,
+      </if>
+      <if test="d506_EXT13 != null">
+        D506_EXT13,
+      </if>
+      <if test="d506_EXT14 != null">
+        D506_EXT14,
+      </if>
+      <if test="d506_TEMP != null">
+        D506_TEMP,
+      </if>
+      <if test="d506_EXT19 != null">
+        D506_EXT19,
+      </if>
+      <if test="d506_35 != null">
+        D506_35,
+      </if>
+      <if test="d506_EXT21 != null">
+        D506_EXT21,
+      </if>
+      <if test="d506_EXT17 != null">
+        D506_EXT17,
+      </if>
+      <if test="d506_EXT22 != null">
+        D506_EXT22,
+      </if>
+      <if test="d506_EXT23 != null">
+        D506_EXT23,
+      </if>
+      <if test="d506_EXT24 != null">
+        D506_EXT24,
+      </if>
+      <if test="d506_EXT25 != null">
+        D506_EXT25,
+      </if>
+      <if test="d506_EXT26 != null">
+        D506_EXT26,
+      </if>
+      <if test="d506_EXT18 != null">
+        D506_EXT18,
+      </if>
+      <if test="d506_29 != null">
+        D506_29,
+      </if>
+      <if test="d506_EXT31 != null">
+        D506_EXT31,
+      </if>
+      <if test="d506_EXT28 != null">
+        D506_EXT28,
+      </if>
+      <if test="d506_EXT29 != null">
+        D506_EXT29,
+      </if>
+      <if test="d506_EXT30 != null">
+        D506_EXT30,
+      </if>
+      <if test="d506_EXT27 != null">
+        D506_EXT27,
+      </if>
+      <if test="d506_EXT33 != null">
+        D506_EXT33,
+      </if>
+      <if test="d506_EXT40 != null">
+        D506_EXT40,
+      </if>
+      <if test="d506_EXT41 != null">
+        D506_EXT41,
+      </if>
+      <if test="d506_EXT42 != null">
+        D506_EXT42,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="d506_38 != null">
+        #{d506_38,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_01 != null">
+        #{d506_01,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_05 != null">
+        #{d506_05,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_06 != null">
+        #{d506_06,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_07 != null">
+        #{d506_07,jdbcType=CHAR},
+      </if>
+      <if test="d506_08 != null">
+        #{d506_08,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_09 != null">
+        #{d506_09,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_10 != null">
+        #{d506_10,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_50 != null">
+        #{d506_50,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_11 != null">
+        #{d506_11,jdbcType=CHAR},
+      </if>
+      <if test="d506_12 != null">
+        #{d506_12,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_52 != null">
+        #{d506_52,jdbcType=DATE},
+      </if>
+      <if test="d506_53 != null">
+        #{d506_53,jdbcType=DATE},
+      </if>
+      <if test="d506_54 != null">
+        #{d506_54,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_55 != null">
+        #{d506_55,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_56 != null">
+        #{d506_56,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_58 != null">
+        #{d506_58,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_60 != null">
+        #{d506_60,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_61 != null">
+        #{d506_61,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_62 != null">
+        #{d506_62,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_67 != null">
+        #{d506_67,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_63 != null">
+        #{d506_63,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_64 != null">
+        #{d506_64,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_57 != null">
+        #{d506_57,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_37 != null">
+        #{d506_37,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_66 != null">
+        #{d506_66,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_03 != null">
+        #{d506_03,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_04 != null">
+        #{d506_04,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_13 != null">
+        #{d506_13,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_14 != null">
+        #{d506_14,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_33 != null">
+        #{d506_33,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_19 != null">
+        #{d506_19,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_30 != null">
+        #{d506_30,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_31 != null">
+        #{d506_31,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_39 != null">
+        #{d506_39,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_18 != null">
+        #{d506_18,jdbcType=VARCHAR},
+      </if>
+      <if test="AAE036 != null">
+        #{AAE036,jdbcType=DATE},
+      </if>
+      <if test="d506_49 != null">
+        #{d506_49,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_88 != null">
+        #{d506_88,jdbcType=DATE},
+      </if>
+      <if test="d506_89 != null">
+        #{d506_89,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_90 != null">
+        #{d506_90,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_91 != null">
+        #{d506_91,jdbcType=DATE},
+      </if>
+      <if test="d506_93 != null">
+        #{d506_93,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_94 != null">
+        #{d506_94,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_95 != null">
+        #{d506_95,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_42 != null">
+        #{d506_42,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_92 != null">
+        #{d506_92,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_96 != null">
+        #{d506_96,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_65 != null">
+        #{d506_65,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_68 != null">
+        #{d506_68,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT02 != null">
+        #{d506_EXT02,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT01 != null">
+        #{d506_EXT01,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT03 != null">
+        #{d506_EXT03,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT04 != null">
+        #{d506_EXT04,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT05 != null">
+        #{d506_EXT05,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT06 != null">
+        #{d506_EXT06,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT07 != null">
+        #{d506_EXT07,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT08 != null">
+        #{d506_EXT08,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT09 != null">
+        #{d506_EXT09,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT10 != null">
+        #{d506_EXT10,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT11 != null">
+        #{d506_EXT11,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT12 != null">
+        #{d506_EXT12,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT13 != null">
+        #{d506_EXT13,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT14 != null">
+        #{d506_EXT14,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_TEMP != null">
+        #{d506_TEMP,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT19 != null">
+        #{d506_EXT19,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_35 != null">
+        #{d506_35,jdbcType=CHAR},
+      </if>
+      <if test="d506_EXT21 != null">
+        #{d506_EXT21,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT17 != null">
+        #{d506_EXT17,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT22 != null">
+        #{d506_EXT22,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT23 != null">
+        #{d506_EXT23,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT24 != null">
+        #{d506_EXT24,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT25 != null">
+        #{d506_EXT25,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT26 != null">
+        #{d506_EXT26,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT18 != null">
+        #{d506_EXT18,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_29 != null">
+        #{d506_29,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT31 != null">
+        #{d506_EXT31,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT28 != null">
+        #{d506_EXT28,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT29 != null">
+        #{d506_EXT29,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT30 != null">
+        #{d506_EXT30,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT27 != null">
+        #{d506_EXT27,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT33 != null">
+        #{d506_EXT33,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT40 != null">
+        #{d506_EXT40,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT41 != null">
+        #{d506_EXT41,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT42 != null">
+        #{d506_EXT42,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sysnet.dbsb.model.plicc.xnh.D506">
+    update D506
+    <set>
+      <if test="d506_05 != null">
+        D506_05 = #{d506_05,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_06 != null">
+        D506_06 = #{d506_06,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_07 != null">
+        D506_07 = #{d506_07,jdbcType=CHAR},
+      </if>
+      <if test="d506_08 != null">
+        D506_08 = #{d506_08,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_09 != null">
+        D506_09 = #{d506_09,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_10 != null">
+        D506_10 = #{d506_10,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_50 != null">
+        D506_50 = #{d506_50,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_11 != null">
+        D506_11 = #{d506_11,jdbcType=CHAR},
+      </if>
+      <if test="d506_12 != null">
+        D506_12 = #{d506_12,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_52 != null">
+        D506_52 = #{d506_52,jdbcType=DATE},
+      </if>
+      <if test="d506_53 != null">
+        D506_53 = #{d506_53,jdbcType=DATE},
+      </if>
+      <if test="d506_54 != null">
+        D506_54 = #{d506_54,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_55 != null">
+        D506_55 = #{d506_55,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_56 != null">
+        D506_56 = #{d506_56,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_58 != null">
+        D506_58 = #{d506_58,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_60 != null">
+        D506_60 = #{d506_60,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_61 != null">
+        D506_61 = #{d506_61,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_62 != null">
+        D506_62 = #{d506_62,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_67 != null">
+        D506_67 = #{d506_67,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_63 != null">
+        D506_63 = #{d506_63,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_64 != null">
+        D506_64 = #{d506_64,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_57 != null">
+        D506_57 = #{d506_57,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_37 != null">
+        D506_37 = #{d506_37,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_66 != null">
+        D506_66 = #{d506_66,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_03 != null">
+        D506_03 = #{d506_03,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_04 != null">
+        D506_04 = #{d506_04,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_13 != null">
+        D506_13 = #{d506_13,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_14 != null">
+        D506_14 = #{d506_14,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_33 != null">
+        D506_33 = #{d506_33,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_19 != null">
+        D506_19 = #{d506_19,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_30 != null">
+        D506_30 = #{d506_30,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_31 != null">
+        D506_31 = #{d506_31,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_39 != null">
+        D506_39 = #{d506_39,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_18 != null">
+        D506_18 = #{d506_18,jdbcType=VARCHAR},
+      </if>
+      <if test="AAE036 != null">
+        AAE036 = #{AAE036,jdbcType=DATE},
+      </if>
+      <if test="d506_49 != null">
+        D506_49 = #{d506_49,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_88 != null">
+        D506_88 = #{d506_88,jdbcType=DATE},
+      </if>
+      <if test="d506_89 != null">
+        D506_89 = #{d506_89,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_90 != null">
+        D506_90 = #{d506_90,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_91 != null">
+        D506_91 = #{d506_91,jdbcType=DATE},
+      </if>
+      <if test="d506_93 != null">
+        D506_93 = #{d506_93,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_94 != null">
+        D506_94 = #{d506_94,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_95 != null">
+        D506_95 = #{d506_95,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_42 != null">
+        D506_42 = #{d506_42,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_92 != null">
+        D506_92 = #{d506_92,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_96 != null">
+        D506_96 = #{d506_96,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_65 != null">
+        D506_65 = #{d506_65,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_68 != null">
+        D506_68 = #{d506_68,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT02 != null">
+        D506_EXT02 = #{d506_EXT02,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT01 != null">
+        D506_EXT01 = #{d506_EXT01,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT03 != null">
+        D506_EXT03 = #{d506_EXT03,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT04 != null">
+        D506_EXT04 = #{d506_EXT04,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT05 != null">
+        D506_EXT05 = #{d506_EXT05,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT06 != null">
+        D506_EXT06 = #{d506_EXT06,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT07 != null">
+        D506_EXT07 = #{d506_EXT07,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT08 != null">
+        D506_EXT08 = #{d506_EXT08,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT09 != null">
+        D506_EXT09 = #{d506_EXT09,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT10 != null">
+        D506_EXT10 = #{d506_EXT10,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT11 != null">
+        D506_EXT11 = #{d506_EXT11,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT12 != null">
+        D506_EXT12 = #{d506_EXT12,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT13 != null">
+        D506_EXT13 = #{d506_EXT13,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT14 != null">
+        D506_EXT14 = #{d506_EXT14,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_TEMP != null">
+        D506_TEMP = #{d506_TEMP,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT19 != null">
+        D506_EXT19 = #{d506_EXT19,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_35 != null">
+        D506_35 = #{d506_35,jdbcType=CHAR},
+      </if>
+      <if test="d506_EXT21 != null">
+        D506_EXT21 = #{d506_EXT21,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT17 != null">
+        D506_EXT17 = #{d506_EXT17,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT22 != null">
+        D506_EXT22 = #{d506_EXT22,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT23 != null">
+        D506_EXT23 = #{d506_EXT23,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT24 != null">
+        D506_EXT24 = #{d506_EXT24,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT25 != null">
+        D506_EXT25 = #{d506_EXT25,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT26 != null">
+        D506_EXT26 = #{d506_EXT26,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT18 != null">
+        D506_EXT18 = #{d506_EXT18,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_29 != null">
+        D506_29 = #{d506_29,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT31 != null">
+        D506_EXT31 = #{d506_EXT31,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT28 != null">
+        D506_EXT28 = #{d506_EXT28,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT29 != null">
+        D506_EXT29 = #{d506_EXT29,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT30 != null">
+        D506_EXT30 = #{d506_EXT30,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT27 != null">
+        D506_EXT27 = #{d506_EXT27,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT33 != null">
+        D506_EXT33 = #{d506_EXT33,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT40 != null">
+        D506_EXT40 = #{d506_EXT40,jdbcType=DECIMAL},
+      </if>
+      <if test="d506_EXT41 != null">
+        D506_EXT41 = #{d506_EXT41,jdbcType=VARCHAR},
+      </if>
+      <if test="d506_EXT42 != null">
+        D506_EXT42 = #{d506_EXT42,jdbcType=DATE},
+      </if>
+    </set>
+    where D506_38 = #{d506_38,jdbcType=VARCHAR}
+      and D506_01 = #{d506_01,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sysnet.dbsb.model.plicc.xnh.D506">
+    update D506
+    set D506_05 = #{d506_05,jdbcType=DECIMAL},
+      D506_06 = #{d506_06,jdbcType=VARCHAR},
+      D506_07 = #{d506_07,jdbcType=CHAR},
+      D506_08 = #{d506_08,jdbcType=VARCHAR},
+      D506_09 = #{d506_09,jdbcType=VARCHAR},
+      D506_10 = #{d506_10,jdbcType=DECIMAL},
+      D506_50 = #{d506_50,jdbcType=VARCHAR},
+      D506_11 = #{d506_11,jdbcType=CHAR},
+      D506_12 = #{d506_12,jdbcType=VARCHAR},
+      D506_52 = #{d506_52,jdbcType=DATE},
+      D506_53 = #{d506_53,jdbcType=DATE},
+      D506_54 = #{d506_54,jdbcType=VARCHAR},
+      D506_55 = #{d506_55,jdbcType=VARCHAR},
+      D506_56 = #{d506_56,jdbcType=DECIMAL},
+      D506_58 = #{d506_58,jdbcType=DECIMAL},
+      D506_60 = #{d506_60,jdbcType=VARCHAR},
+      D506_61 = #{d506_61,jdbcType=VARCHAR},
+      D506_62 = #{d506_62,jdbcType=VARCHAR},
+      D506_67 = #{d506_67,jdbcType=VARCHAR},
+      D506_63 = #{d506_63,jdbcType=VARCHAR},
+      D506_64 = #{d506_64,jdbcType=VARCHAR},
+      D506_57 = #{d506_57,jdbcType=VARCHAR},
+      D506_37 = #{d506_37,jdbcType=DECIMAL},
+      D506_66 = #{d506_66,jdbcType=DECIMAL},
+      D506_03 = #{d506_03,jdbcType=DECIMAL},
+      D506_04 = #{d506_04,jdbcType=DECIMAL},
+      D506_13 = #{d506_13,jdbcType=DECIMAL},
+      D506_14 = #{d506_14,jdbcType=DECIMAL},
+      D506_33 = #{d506_33,jdbcType=DECIMAL},
+      D506_19 = #{d506_19,jdbcType=DECIMAL},
+      D506_30 = #{d506_30,jdbcType=DECIMAL},
+      D506_31 = #{d506_31,jdbcType=DECIMAL},
+      D506_39 = #{d506_39,jdbcType=DECIMAL},
+      D506_18 = #{d506_18,jdbcType=VARCHAR},
+      AAE036 = #{AAE036,jdbcType=DATE},
+      D506_49 = #{d506_49,jdbcType=VARCHAR},
+      D506_88 = #{d506_88,jdbcType=DATE},
+      D506_89 = #{d506_89,jdbcType=VARCHAR},
+      D506_90 = #{d506_90,jdbcType=VARCHAR},
+      D506_91 = #{d506_91,jdbcType=DATE},
+      D506_93 = #{d506_93,jdbcType=DECIMAL},
+      D506_94 = #{d506_94,jdbcType=DECIMAL},
+      D506_95 = #{d506_95,jdbcType=DECIMAL},
+      D506_42 = #{d506_42,jdbcType=VARCHAR},
+      D506_92 = #{d506_92,jdbcType=VARCHAR},
+      D506_96 = #{d506_96,jdbcType=VARCHAR},
+      D506_65 = #{d506_65,jdbcType=VARCHAR},
+      D506_68 = #{d506_68,jdbcType=VARCHAR},
+      D506_EXT02 = #{d506_EXT02,jdbcType=VARCHAR},
+      D506_EXT01 = #{d506_EXT01,jdbcType=VARCHAR},
+      D506_EXT03 = #{d506_EXT03,jdbcType=DECIMAL},
+      D506_EXT04 = #{d506_EXT04,jdbcType=DECIMAL},
+      D506_EXT05 = #{d506_EXT05,jdbcType=DECIMAL},
+      D506_EXT06 = #{d506_EXT06,jdbcType=DECIMAL},
+      D506_EXT07 = #{d506_EXT07,jdbcType=DECIMAL},
+      D506_EXT08 = #{d506_EXT08,jdbcType=DECIMAL},
+      D506_EXT09 = #{d506_EXT09,jdbcType=DECIMAL},
+      D506_EXT10 = #{d506_EXT10,jdbcType=DECIMAL},
+      D506_EXT11 = #{d506_EXT11,jdbcType=DECIMAL},
+      D506_EXT12 = #{d506_EXT12,jdbcType=DECIMAL},
+      D506_EXT13 = #{d506_EXT13,jdbcType=DECIMAL},
+      D506_EXT14 = #{d506_EXT14,jdbcType=DECIMAL},
+      D506_TEMP = #{d506_TEMP,jdbcType=DECIMAL},
+      D506_EXT19 = #{d506_EXT19,jdbcType=DECIMAL},
+      D506_35 = #{d506_35,jdbcType=CHAR},
+      D506_EXT21 = #{d506_EXT21,jdbcType=DECIMAL},
+      D506_EXT17 = #{d506_EXT17,jdbcType=DECIMAL},
+      D506_EXT22 = #{d506_EXT22,jdbcType=DECIMAL},
+      D506_EXT23 = #{d506_EXT23,jdbcType=DECIMAL},
+      D506_EXT24 = #{d506_EXT24,jdbcType=VARCHAR},
+      D506_EXT25 = #{d506_EXT25,jdbcType=DECIMAL},
+      D506_EXT26 = #{d506_EXT26,jdbcType=VARCHAR},
+      D506_EXT18 = #{d506_EXT18,jdbcType=DECIMAL},
+      D506_29 = #{d506_29,jdbcType=DECIMAL},
+      D506_EXT31 = #{d506_EXT31,jdbcType=DECIMAL},
+      D506_EXT28 = #{d506_EXT28,jdbcType=VARCHAR},
+      D506_EXT29 = #{d506_EXT29,jdbcType=DECIMAL},
+      D506_EXT30 = #{d506_EXT30,jdbcType=DECIMAL},
+      D506_EXT27 = #{d506_EXT27,jdbcType=DECIMAL},
+      D506_EXT33 = #{d506_EXT33,jdbcType=VARCHAR},
+      D506_EXT40 = #{d506_EXT40,jdbcType=DECIMAL},
+      D506_EXT41 = #{d506_EXT41,jdbcType=VARCHAR},
+      D506_EXT42 = #{d506_EXT42,jdbcType=DATE}
+    where D506_38 = #{d506_38,jdbcType=VARCHAR}
+      and D506_01 = #{d506_01,jdbcType=VARCHAR}
+  </update>
+</mapper>
