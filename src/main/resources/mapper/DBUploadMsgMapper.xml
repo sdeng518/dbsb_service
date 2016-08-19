@@ -33,30 +33,28 @@
   <select id="queryByFilter" parameterType="map" resultMap="BaseResultMap">
 	select 
 	    <include refid="Base_Column_List" />
-	    from DB_UPLOADMSG　WHERE
-			  NVL(uploadcount,0)    &lt;  2 AND
+	    from DB_UPLOADMSG　
+		<where>
+			 NVL(uploadcount,0)    &lt;  2 AND
 			(UploadFlag = '0' or uploaddate is null or (
 				EXISTS (
 				select 1
 				from db_payment t2
 				where DB_UPLOADMSG.MEDICAL_RECORD_NO = t2.MEDICAL_RECORD_NO
 					and t2.CreateDATE >= uploaddate
-					
-			))
+					 and t2.OUTDATE > to_date('2016-08-01','yyyy-mm-dd')
+			)))
 			
 			AND
 			(EXISTS (
 				select 1
 				from db_payment t2,VIEW_DB_TREATREG t3
 				where DB_UPLOADMSG.MEDICAL_RECORD_NO = t2.MEDICAL_RECORD_NO
+				    and t2.OUTDATE > to_date('2016-08-01','yyyy-mm-dd')
 					and t2.MEDICAL_RECORD_NO = t3.MEDICAL_RECORD_NO
 					and t2.CreateDATE >= uploaddate
 					and t3.ding_hosp_code in ('43563192-8','43570116-4','66116165-3','43563180-5','43520299-8','43563145-0','62311839-8')
-			)))
-			
-			
-			
-		<where>
+			))
    			<if test="medical_record_no!=null and medical_record_no!=''">
 				AND MEDICAL_RECORD_NO =#{medical_record_no,jdbcType=VARCHAR}
 			</if>
