@@ -69,12 +69,13 @@ import com.sysnet.dbsb.util.JAXBUtil;
 import com.sysnet.dbsb.ws.asia.XnhService;
 import com.sysnet.dbsb.ws.asia.XnhServiceService;
 import com.sysnet.dbsb.ws.asia.XnhServiceServiceLocator;
-
 /**
- * @ClassName: UploadServiceImpl4ASIA
- * @Description:
- * @author dengweihua
- * @date 2016年1月21日 下午5:57:41
+ * 
+ * @Path com.sysnet.dbsb.service.impl.UploadServiceImpl4ASIA
+ * @Description TODO
+ * @date 2016年8月20日下午2:31:00
+ * @author yuanqi
+ * @version：1.0
  */
 @Service
 public class UploadServiceImpl4ASIA implements UploadService {
@@ -349,7 +350,10 @@ Map<String, Object> filter = new HashMap<String, Object>();
 		List<DBUploadMsg> uploadMsgs = uploadMsgDao.queryByFilter(filter);
 		for (DBUploadMsg dbUploadMsg : uploadMsgs) {
 			String medical_record_no = dbUploadMsg.getMEDICAL_RECORD_NO();
-			String hospital_registration_sn = dbUploadMsg.getHOSPITAL_REGISTRATION_SN();
+			/*
+			 * 针对推送多次住院
+			 */
+			String hospital_registration_sn = null;
 			
 				uploadRegistration(medical_record_no, hospital_registration_sn);
 			try {
@@ -635,7 +639,7 @@ Map<String, Object> filter = new HashMap<String, Object>();
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
 		filter.put("hospital_registration_sn", hospital_registration_sn);
-
+       
 		List<DBUploadMsg> uploadMsgs = uploadMsgDao.queryByFilter(filter);
 		for (DBUploadMsg dbUploadMsg : uploadMsgs) {
 			filter.clear();
