@@ -467,7 +467,6 @@ Map<String, Object> filter = new HashMap<String, Object>();
 				body.setHospitalCompensationCancelInfo(hospitalCompensationCancelInfo);
 				request.setHead(head);
 				request.setBody(body);
-
 				String xmlRequest = JAXBUtil.convertToXml(request);
 				System.out.println(xmlRequest);
 				request(xmlRequest, "100014");
