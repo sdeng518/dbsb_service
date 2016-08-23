@@ -28,6 +28,35 @@
     where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}
       and HOSPITAL_REGISTRATION_SN = #{HOSPITAL_REGISTRATION_SN,jdbcType=VARCHAR}
   </select>
+  <select id="queryByFilter" parameterType="map" resultMap="BaseResultMap">
+	select 
+	    <include refid="Base_Column_List" />
+	    from DB_PAYMENT　
+		<where>
+			 NVL(uploadcount,0)    &lt;  2
+			 AND (UploadFlag = '0' or uploaddate is null or CreateDATE > uploaddate)
+			   and OUTDATE > to_date('2016-08-01', 'yyyy-mm-dd')
+			   AND EXISTS
+			 (select 1
+			          from VIEW_DB_TREATREG t3
+			         where DB_PAYMENT.MEDICAL_RECORD_NO = t3.MEDICAL_RECORD_NO
+			           and t3.ding_hosp_code in ('43563192-8',
+			                                     '43570116-4',
+			                                     '66116165-3',
+			                                     '43563180-5',
+			                                     '43520299-8',
+			                                     '43563145-0',
+			                                     '62311839-8'))
+   			<if test="medical_record_no!=null and medical_record_no!=''">
+				AND MEDICAL_RECORD_NO =#{medical_record_no,jdbcType=VARCHAR}
+			</if>
+			<if test="hospital_registration_sn!=null and hospital_registration_sn!=''">
+				AND HOSPITAL_REGISTRATION_SN
+				=#{hospital_registration_sn,jdbcType=VARCHAR}
+			</if> 
+			
+		</where>
+	</select>	
   <delete id="deleteByPrimaryKey" parameterType="com.sysnet.dbsb.model.common.DBPaymentKey" >
     delete from DB_PAYMENT
     where MEDICAL_RECORD_NO = #{MEDICAL_RECORD_NO,jdbcType=VARCHAR}

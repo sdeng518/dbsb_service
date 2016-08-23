@@ -22,12 +22,12 @@
 			<!-- <value>uploadAllPerson</value>-->
 			<!-- <value>uploadHospitalById</value>-->
 		   	<!-- <value>uploadTreatSteps</value>-->
-			<!-- <value>uploadAllTreatment</value>-->
+			<value>uploadAllTreatment</value>
 			<!-- <value>uploadTreatmentById</value>-->
 			<!--  <value>uploadTreatSettleDetailById</value>-->
 			<!-- <value>uploadCancelTreatmentById</value>-->
-		    <value>uploadTreatDetailById</value>
-	     	<!--<value>uploadRegistration</value>-->
+		    <!--<value>uploadTreatDetailById</value>-->
+	     	<!-- <value>uploadRegistration</value>-->
 	     	
 			<!-- <value>uploadCompensation</value> -->
 		</property>
@@ -67,8 +67,8 @@
 			<!--  <value>uploadTreatSettleDetailById</value>-->
 			<!-- <value>uploadCancelTreatmentById</value>-->
 			<!--<value>uploadTreatDetailById</value>-->
-	     	<!--<value>uploadRegistration</value>-->
-			<value>uploadCompensation</value>
+	     	<value>uploadRegistration</value>
+			<!--<value>uploadCompensation</value>-->
 		</property>
 	</bean>
 	<!-- 调度触发器 -->
@@ -80,7 +80,7 @@
 			<ref bean="jobDetail1" />
 		</property>
 		<property name="cronExpression">
-			<value>0/40* * * * ?</value>
+			<value>0/40 * 1 * * ?</value>
 		</property>
 	</bean>
 	

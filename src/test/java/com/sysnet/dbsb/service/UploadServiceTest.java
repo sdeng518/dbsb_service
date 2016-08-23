@@ -65,7 +65,7 @@ public class UploadServiceTest {
 	}
 
 	
-	 @Test
+//	 @Test
 	public void testuploadCancelTreatment() {
 		 	
 		 
@@ -82,7 +82,7 @@ public class UploadServiceTest {
 		uploadServiceImpl.searchTreatment(medical_record_no, hospital_registration_sn);
 	}
 
-	@Test
+//	@Test
 	public void testuploadRegistration() {
 		uploadServiceImpl.uploadRegistration(medical_record_no, hospital_registration_sn);
 	}
@@ -91,6 +91,11 @@ public class UploadServiceTest {
 	public void testuploadCompensation() {
 
 		uploadServiceImpl.uploadCompensation(medical_record_no, hospital_registration_sn);
+	}
+	 @Test
+	public void testuploadAllTreatment() {
+
+		uploadServiceImpl.uploadAllTreatment();
 	}
 
 }
