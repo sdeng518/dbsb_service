@@ -99,7 +99,7 @@ public class UploadServiceImpl implements UploadService {
 	 * 
 	 * @see com.sysnet.dbsb.service.UploadService#uploadPerson(java.lang.String)
 	 */
-	public void uploadPerson(String id) {
+	public boolean uploadPerson(String id) {
 		InsuredPerson insuredPerson = insuredPersonDao.queryById(id);
 
 		if (insuredPerson != null) {
@@ -130,6 +130,7 @@ public class UploadServiceImpl implements UploadService {
 			request(xmlRequest);
 
 		}
+		return false;
 
 	}
 
@@ -290,7 +291,7 @@ public class UploadServiceImpl implements UploadService {
 	 * model.common.HospitalRegistration)
 	 */
 	@Override
-	public void uploadTreatment(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadTreatment(String medical_record_no, String hospital_registration_sn) {
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
 		filter.put("hospital_registration_sn", hospital_registration_sn);
@@ -373,6 +374,7 @@ public class UploadServiceImpl implements UploadService {
 			}
 
 		}
+		return false;
 
 	}
 
@@ -395,7 +397,7 @@ public class UploadServiceImpl implements UploadService {
 	 * com.sysnet.dbsb.service.UploadService#uploadTreatDetail(java.lang.String)
 	 */
 	@Override
-	public void uploadTreatDetail(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadTreatDetail(String medical_record_no, String hospital_registration_sn) {
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
 		filter.put("hospital_registration_sn", hospital_registration_sn);
@@ -445,6 +447,7 @@ public class UploadServiceImpl implements UploadService {
 			}
 
 		}
+		return false;
 	}
 
 	/**
@@ -494,7 +497,7 @@ public class UploadServiceImpl implements UploadService {
 	 * String)
 	 */
 	@Override
-	public void uploadCancelTreatment(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadCancelTreatment(String medical_record_no, String hospital_registration_sn) {
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
 		filter.put("hospital_registration_sn", hospital_registration_sn);
@@ -525,6 +528,7 @@ public class UploadServiceImpl implements UploadService {
 			}
 
 		}
+		return false;
 
 	}
 
@@ -536,7 +540,8 @@ public class UploadServiceImpl implements UploadService {
 	* @see com.sysnet.dbsb.service.UploadService#searchTreatment(java.lang.String, java.lang.String)
 	*/
 	@Override
-	public void searchTreatment(String medical_record_no, String hospital_registration_sn) {
+	public boolean searchTreatment(String medical_record_no, String hospital_registration_sn) {
+		return false;
 		// TODO Auto-generated method stub
 		
 	}
@@ -549,7 +554,8 @@ public class UploadServiceImpl implements UploadService {
 	* @see com.sysnet.dbsb.service.UploadService#uploadCompensation(java.lang.String, java.lang.String)
 	*/
 	@Override
-	public void uploadCompensation(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadCompensation(String medical_record_no, String hospital_registration_sn) {
+		return false;
 		// TODO Auto-generated method stub
 		
 	}
@@ -561,7 +567,8 @@ public class UploadServiceImpl implements UploadService {
 	* @see com.sysnet.dbsb.service.UploadService#uploadRegistration(java.lang.String)
 	*/
 	@Override
-	public void uploadRegistration(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadRegistration(String medical_record_no, String hospital_registration_sn) {
+		return false;
 		// TODO Auto-generated method stub
 		
 	}

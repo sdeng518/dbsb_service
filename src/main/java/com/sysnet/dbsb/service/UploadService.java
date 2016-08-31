@@ -16,13 +16,14 @@ package com.sysnet.dbsb.service;
 */
 public interface UploadService {
 	/**
+	 * @return TODO
 	 * 单个参保人上传
 	* @Title: uploadPerson
 	* @Description: 
 	* @param id void
 	* @throws
 	 */
-	public void uploadPerson(String id);
+	public boolean uploadPerson(String id);
 	/**
 	 * 参保人批量上传
 	* @Title: uploadAllPerson
@@ -54,6 +55,7 @@ public interface UploadService {
 	 */
 	public void uploadTreatment(String id);
 	/**
+	 * @return TODO
 	 * 上传单次就诊结算记录
 	* @Title: uploadTreatment
 	* @Description: 
@@ -61,7 +63,7 @@ public interface UploadService {
 	* @param hospital_registration_sn void
 	* @throws
 	 */
-	public void uploadTreatment(String medical_record_no,String hospital_registration_sn);
+	public boolean uploadTreatment(String medical_record_no,String hospital_registration_sn);
 	/**
 	 * 住院结算批量上传
 	* @Title: uploadAllTreatment
@@ -70,23 +72,26 @@ public interface UploadService {
 	 */
 	public void uploadAllTreatment();
 	/**
+	 * @return TODO
 	 * 住院明细上传
 	* @Title: uploadTreatDetail
 	* @Description: 
 	* @param id void
 	* @throws
 	 */
-	public void uploadTreatDetail(String medical_record_no,String hospital_registration_sn);
+	public boolean uploadTreatDetail(String medical_record_no,String hospital_registration_sn);
 	/**
+	 * @return TODO
 	 * 结算回退
 	* @Title: uploadCancelTreatment
 	* @Description: 
 	* @param id void
 	* @throws
 	 */
-	public void uploadCancelTreatment(String medical_record_no,String hospital_registration_sn);
+	public boolean uploadCancelTreatment(String medical_record_no,String hospital_registration_sn);
 	
 	/**
+	 * @return TODO
 	 * 	费用信息查询
 	* @Title: searchTreatment
 	* @Description: 
@@ -94,8 +99,9 @@ public interface UploadService {
 	* @param hospital_registration_sn void
 	* @throws
 	 */
-	public void searchTreatment(String medical_record_no,String hospital_registration_sn);
+	public boolean searchTreatment(String medical_record_no,String hospital_registration_sn);
 	/**
+	 * @return TODO
 	 * 住院补偿
 	* @Title: uploadCompensation
 	* @Description: 
@@ -103,9 +109,10 @@ public interface UploadService {
 	* @param hospital_registration_sn void
 	* @throws
 	 */
-	public void uploadCompensation(String medical_record_no,String hospital_registration_sn);
+	public boolean uploadCompensation(String medical_record_no,String hospital_registration_sn);
 	
 	/**
+	 * @return TODO
 	 * 住院登记
 	* @Title: uploadRegistration
 	* @Description: 
@@ -113,6 +120,6 @@ public interface UploadService {
 	* @param hospital_registration_sn void
 	* @throws
 	 */
-	public void uploadRegistration(String medical_record_no, String hospital_registration_sn);
+	public boolean uploadRegistration(String medical_record_no, String hospital_registration_sn);
 	
 }

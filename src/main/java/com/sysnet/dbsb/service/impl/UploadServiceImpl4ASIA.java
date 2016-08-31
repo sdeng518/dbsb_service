@@ -23,6 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
 import com.sysnet.common.annotation.SystemServiceLog;
 import com.sysnet.dbsb.dao.DBMessageMapper;
 import com.sysnet.dbsb.dao.DBPaymentMapper;
@@ -118,7 +119,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 	 * 
 	 * @see com.sysnet.dbsb.service.UploadService#uploadPerson(java.lang.String)
 	 */
-	public void uploadPerson(String id) {
+	public boolean uploadPerson(String id) {
 		InsuredPerson insuredPerson = insuredPersonDao.queryById(id);
 
 		if (insuredPerson != null) {
@@ -133,6 +134,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 			System.out.println(xmlRequest);
 			request(xmlRequest, "100005");
 		}
+		return false;
 	}
 
 	/**
@@ -173,11 +175,16 @@ public class UploadServiceImpl4ASIA implements UploadService {
 		}
 		logger.info(xmlResponse);
 
-		DBMessage message = new DBMessage();
-		message.setREQUEST(xmlRequest);
-		message.setRESPONSE(xmlResponse);
-		message.setBUS_CODE(bus_code);
-		messageDao.insertSelective(message);
+		try {
+			DBMessage message = new DBMessage();
+			message.setREQUEST(xmlRequest);
+			message.setRESPONSE(xmlResponse);
+			message.setBUS_CODE(bus_code);
+			messageDao.insertSelective(message);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		return xmlResponse;
 	}
@@ -232,15 +239,17 @@ public class UploadServiceImpl4ASIA implements UploadService {
 	 * @Title: afterUploadTreat @Description: @param medical_record_no @param
 	 *         hospital_registration_sn @param responseXml void @throws
 	 */
-	public void afterUploadTreat(String medical_record_no,
+	public boolean afterUploadTreat(String medical_record_no,
 			String hospital_registration_sn, String responseXml) {
+		boolean result = false;
+		
 		DBPaymentKey key = new DBPaymentKey();
 		key.setMEDICAL_RECORD_NO(medical_record_no);
 		key.setHOSPITAL_REGISTRATION_SN(hospital_registration_sn);
 		DBPayment payment = paymentDao.selectByPrimaryKey(key);
 
 		if (payment == null) {
-			return;
+			return result;
 		}
 
 		if (StringUtils.contains(responseXml, "<status>1")) {
@@ -254,6 +263,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 
 			// }
 			payment.setUPLOADFLAG(Successful);
+			result = true;
 
 		} else {
 			payment.setUPLOADFLAG(False);
@@ -269,7 +279,14 @@ public class UploadServiceImpl4ASIA implements UploadService {
 		countBigDecimal = countBigDecimal.add(new BigDecimal("1"));
 
 		payment.setUPLOADCOUNT(countBigDecimal);
-		paymentDao.updateByPrimaryKeySelective(payment);
+		try {
+			paymentDao.updateByPrimaryKeySelective(payment);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
 
 	}
 
@@ -307,7 +324,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 	 */
 	@Override
 	@SystemServiceLog(description = "上传结算数据")
-	public void uploadTreatment(String medical_record_no,
+	public boolean uploadTreatment(String medical_record_no,
 			String hospital_registration_sn) {
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
@@ -364,6 +381,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 			}
 
 		}
+		return false;
 
 	}
 
@@ -394,13 +412,21 @@ public class UploadServiceImpl4ASIA implements UploadService {
 				hospital_registration_sn = settlement
 						.getHospital_registration_sn();
 
-				uploadRegistration(medical_record_no, hospital_registration_sn);
+				boolean isUpload = uploadRegistration(medical_record_no, hospital_registration_sn);
+				//住院登记上传不成功，则不用上传明细与结算
+				if (!isUpload) {
+					continue;
+				}
 				try {
-					uploadTreatDetail(medical_record_no,
+					isUpload = uploadTreatDetail(medical_record_no,
 							hospital_registration_sn);
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
+				if (!isUpload) {
+					continue;
+				}
+				
 				try {
 					uploadCompensation(medical_record_no,
 							hospital_registration_sn);
@@ -421,8 +447,10 @@ public class UploadServiceImpl4ASIA implements UploadService {
 	 * com.sysnet.dbsb.service.UploadService#uploadTreatDetail(java.lang.String)
 	 */
 	@Override
-	public void uploadTreatDetail(String medical_record_no,
+	public boolean uploadTreatDetail(String medical_record_no,
 			String hospital_registration_sn) {
+		boolean result = false;
+		
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
 		filter.put("hospital_registration_sn", hospital_registration_sn);
@@ -466,7 +494,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 					// System.out.println(xmlRequest);
 					String responseXml = request(xmlRequest, "100020");
 					if (StringUtils.contains(responseXml, "<status>1")) {
-
+						result = true;
 					} else {
 						logger.error(responseXml);
 					}
@@ -475,6 +503,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 			}
 
 		}
+		return result;
 
 	}
 
@@ -488,7 +517,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 	 * String)
 	 */
 	@Override
-	public void uploadCancelTreatment(String medical_record_no,
+	public boolean uploadCancelTreatment(String medical_record_no,
 			String hospital_registration_sn) {
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
@@ -551,6 +580,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 			}
 
 		}
+		return false;
 
 	}
 
@@ -566,7 +596,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 	 * java.lang.String)
 	 */
 	@Override
-	public void searchTreatment(String medical_record_no,
+	public boolean searchTreatment(String medical_record_no,
 			String hospital_registration_sn) {
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
@@ -604,6 +634,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 			}
 
 		}
+		return false;
 
 	}
 
@@ -618,8 +649,10 @@ public class UploadServiceImpl4ASIA implements UploadService {
 	 * String, java.lang.String)
 	 */
 	@Override
-	public void uploadCompensation(String medical_record_no,
+	public boolean uploadCompensation(String medical_record_no,
 			String hospital_registration_sn) {
+		boolean result = false;
+		
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
 		filter.put("hospital_registration_sn", hospital_registration_sn);
@@ -712,13 +745,15 @@ public class UploadServiceImpl4ASIA implements UploadService {
 					String xmlRequest = JAXBUtil.convertToXml(request);
 					// System.out.println(xmlRequest);
 					String responseXml = request(xmlRequest, "100013");
-					afterUploadTreat(medical_record_no,
+					result = afterUploadTreat(medical_record_no,
 							hospital_registration_sn, responseXml);
 				}
 
 			}
 
 		}
+		
+		return result;
 
 	}
 
@@ -742,8 +777,10 @@ public class UploadServiceImpl4ASIA implements UploadService {
 	 * String)
 	 */
 	@Override
-	public void uploadRegistration(String medical_record_no,
+	public boolean uploadRegistration(String medical_record_no,
 			String hospital_registration_sn) {
+		boolean result = false;
+		
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
 		filter.put("hospital_registration_sn", hospital_registration_sn);
@@ -778,6 +815,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 					if (StringUtils.contains(responseXml, "<status>1")) {
 						// 更新成功，更新标志
 						dbUploadMsg.setUPLOADFLAG(Successful);
+						result = true;
 					} else {
 						dbUploadMsg.setUPLOADFLAG(False);
 						logger.error(responseXml);
@@ -795,6 +833,7 @@ public class UploadServiceImpl4ASIA implements UploadService {
 			}
 
 		}
+		return result;
 
 	}
 

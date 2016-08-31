@@ -112,8 +112,9 @@ public class UploadServiceImpl4Test implements UploadService {
 	 * 
 	 * @see com.sysnet.dbsb.service.UploadService#uploadPerson(java.lang.String)
 	 */
-	public void uploadPerson(String id) {
+	public boolean uploadPerson(String id) {
 			System.out.println("=============测试1==========");
+			return false;
 	}
 
 	/**
@@ -211,8 +212,9 @@ public class UploadServiceImpl4Test implements UploadService {
 	 */
 	@Override
 	@SystemServiceLog(description = "上传结算数据")
-	public void uploadTreatment(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadTreatment(String medical_record_no, String hospital_registration_sn) {
 		System.out.println("=============测试4==========");
+		return false;
 
 	}
 
@@ -235,8 +237,9 @@ public class UploadServiceImpl4Test implements UploadService {
 	 * com.sysnet.dbsb.service.UploadService#uploadTreatDetail(java.lang.String)
 	 */
 	@Override
-	public void uploadTreatDetail(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadTreatDetail(String medical_record_no, String hospital_registration_sn) {
 		System.out.println("=============测试5==========");
+		return false;
 	}
 
 	/*
@@ -249,8 +252,9 @@ public class UploadServiceImpl4Test implements UploadService {
 	 * String)
 	 */
 	@Override
-	public void uploadCancelTreatment(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadCancelTreatment(String medical_record_no, String hospital_registration_sn) {
 		System.out.println("=============测试6==========");
+		return false;
 	}
 
 	/*
@@ -265,8 +269,9 @@ public class UploadServiceImpl4Test implements UploadService {
 	 * java.lang.String)
 	 */
 	@Override
-	public void searchTreatment(String medical_record_no, String hospital_registration_sn) {
+	public boolean searchTreatment(String medical_record_no, String hospital_registration_sn) {
 		System.out.println("=============测试7==========");
+		return false;
 
 	}
 
@@ -281,8 +286,9 @@ public class UploadServiceImpl4Test implements UploadService {
 	 * String, java.lang.String)
 	 */
 	@Override
-	public void uploadCompensation(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadCompensation(String medical_record_no, String hospital_registration_sn) {
 		System.out.println("=============测试8==========");
+		return false;
 
 	}
 
@@ -302,8 +308,9 @@ public class UploadServiceImpl4Test implements UploadService {
 	 * String)
 	 */
 	@Override
-	public void uploadRegistration(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadRegistration(String medical_record_no, String hospital_registration_sn) {
 		System.out.println("=============测试10==========");
+		return false;
 
 	}
 

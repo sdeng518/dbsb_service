@@ -106,7 +106,7 @@ public class UploadServiceImpl4PLICC implements UploadService {
 	 * 
 	 * @see com.sysnet.dbsb.service.UploadService#uploadPerson(java.lang.String)
 	 */
-	public void uploadPerson(String id) {
+	public boolean uploadPerson(String id) {
 		InsuredPerson insuredPerson = insuredPersonDao.queryById(id);
 
 		if (insuredPerson != null) {
@@ -120,6 +120,7 @@ public class UploadServiceImpl4PLICC implements UploadService {
 			String xmlRequest = JAXBUtil.convertToXml(request);
 			request(xmlRequest, head);
 		}
+		return false;
 	}
 
 	/**
@@ -237,7 +238,7 @@ public class UploadServiceImpl4PLICC implements UploadService {
 	 */
 	@Override
 	@SystemServiceLog(description = "上传结算数据")
-	public void uploadTreatment(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadTreatment(String medical_record_no, String hospital_registration_sn) {
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
 		filter.put("hospital_registration_sn", hospital_registration_sn);
@@ -275,6 +276,7 @@ public class UploadServiceImpl4PLICC implements UploadService {
 				}
 			}
 		}
+		return false;
 
 	}
 
@@ -309,7 +311,7 @@ public class UploadServiceImpl4PLICC implements UploadService {
 	 * com.sysnet.dbsb.service.UploadService#uploadTreatDetail(java.lang.String)
 	 */
 	@Override
-	public void uploadTreatDetail(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadTreatDetail(String medical_record_no, String hospital_registration_sn) {
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
 		filter.put("hospital_registration_sn", hospital_registration_sn);
@@ -354,6 +356,7 @@ public class UploadServiceImpl4PLICC implements UploadService {
 			}
 
 		}
+		return false;
 
 	}
 
@@ -367,7 +370,7 @@ public class UploadServiceImpl4PLICC implements UploadService {
 	 * String)
 	 */
 	@Override
-	public void uploadCancelTreatment(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadCancelTreatment(String medical_record_no, String hospital_registration_sn) {
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
 		filter.put("hospital_registration_sn", hospital_registration_sn);
@@ -406,6 +409,7 @@ public class UploadServiceImpl4PLICC implements UploadService {
 			}
 
 		}
+		return false;
 
 	}
 
@@ -421,7 +425,8 @@ public class UploadServiceImpl4PLICC implements UploadService {
 	 * java.lang.String)
 	 */
 	@Override
-	public void searchTreatment(String medical_record_no, String hospital_registration_sn) {
+	public boolean searchTreatment(String medical_record_no, String hospital_registration_sn) {
+		return false;
 		// TODO Auto-generated method stub
 
 	}
@@ -437,7 +442,7 @@ public class UploadServiceImpl4PLICC implements UploadService {
 	 * String, java.lang.String)
 	 */
 	@Override
-	public void uploadCompensation(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadCompensation(String medical_record_no, String hospital_registration_sn) {
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
 		filter.put("hospital_registration_sn", hospital_registration_sn);
@@ -505,6 +510,7 @@ public class UploadServiceImpl4PLICC implements UploadService {
 				}
 			}
 		}
+		return false;
 	}
 
 	/**
@@ -546,7 +552,7 @@ public class UploadServiceImpl4PLICC implements UploadService {
 	 * String)
 	 */
 	@Override
-	public void uploadRegistration(String medical_record_no, String hospital_registration_sn) {
+	public boolean uploadRegistration(String medical_record_no, String hospital_registration_sn) {
 		Map<String, Object> filter = new HashMap<String, Object>();
 		filter.put("medical_record_no", medical_record_no);
 		filter.put("hospital_registration_sn", hospital_registration_sn);
@@ -575,5 +581,6 @@ public class UploadServiceImpl4PLICC implements UploadService {
 				}
 			}
 		}
+		return false;
 	}
 }
